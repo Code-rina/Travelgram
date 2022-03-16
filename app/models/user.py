@@ -38,3 +38,4 @@ class User(db.Model, UserMixin):
             'fullname': self.fullname,
             'profile_img': self.profile_img
         }
+   
