@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import DemoUser from './auth/DemoUser'
+// import DemoUser from './auth/DemoUser'
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
@@ -32,9 +32,9 @@ const NavBar = () => {
           </NavLink>
         </li>} */}
         <div className="navbar-demo-container">
-          <div className='navbar-demo-button'>
+          {/* <div className='navbar-demo-button'>
             <DemoUser />
-          </div>
+          </div> */}
         </div>
         {sessionUser && 
         <li>
