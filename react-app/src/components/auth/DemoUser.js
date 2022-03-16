@@ -22,8 +22,8 @@ const DemoButton = () => {
   }
 
   return (
-    <button id="demo-btn" onClick={handleDemo}>
-      DEMO
+    <button id="demo-button" onClick={handleDemo}>
+      Demo
     </button>
   );
 };
