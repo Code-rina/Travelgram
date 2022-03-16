@@ -12,8 +12,8 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
-    seed_comments()
     seed_posts()
+    seed_comments()
     # Add other seed functions here
 
 
@@ -21,6 +21,6 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_comments()
     undo_posts()
+    undo_comments()
     # Add other undo functions here
