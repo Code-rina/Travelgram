@@ -1,14 +1,13 @@
-from datetime import datetime
 from app.models import db, Post
 
 
 
 def seed_posts():
 
-  post1 = Post(user_id=1, image_url="https://media.cntraveler.com/photos/59cd14cb9465da68882fb4f4/16:9/w_2560%2Cc_limit/Debate_GettyImages-585587819.jpg", caption='What a dreamy place! Hope to come back soon! Lake Louise, Canada')
+  post1 = Post(user_id=1, image_url="https://media.cntraveler.com/photos/59cd14cb9465da68882fb4f4/16:9/w_2560%2Cc_limit/Debate_GettyImages-585587819.jpg", caption='What is on my bucket list? Everywhere. Lake Louise, Canada')
   post2 = Post(user_id=2, image_url="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2018_40/2229681/171116-better-stock-woman-traveling-airport-ew-624p.jpg", caption='Always open to new adventures')
-  post3 = Post(user_id=3, image_url="https://images03.military.com/sites/default/files/styles/full/public/2021-07/stock-road-travel-1800.jpg", caption='Breathtaking mountains! Mayrhofer, Austria')
-  post4 = Post(user_id=4, image_url="https://www.planetware.com/photos-large/THA/phuket-day-trips-phi-phi-islands.jpg", caption='This was such a heavenly vacation. Picture from our boat ride. Phuket, Thailand ')
+  post3 = Post(user_id=3, image_url="https://images03.military.com/sites/default/files/styles/full/public/2021-07/stock-road-travel-1800.jpg", caption='Always say yes to new adventures. Mayrhofer, Austria')
+  post4 = Post(user_id=4, image_url="https://www.planetware.com/photos-large/THA/phuket-day-trips-phi-phi-islands.jpg", caption='Keep calm and travel on. Phuket, Thailand ')
   post5 = Post(user_id=5, image_url="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1257553494.jpg?crop=0.670xw:1.00xh;0.0481xw,0&resize=640:*", caption='It is alwasy a good time travelling through Italy! Positano, Italy')
   post6 = Post(user_id=6, image_url="https://i.pinimg.com/736x/93/7c/8f/937c8fbc2f5f60ebd987cc6dba73c441.jpg", caption='Bonjour. Paris, France')
   post7 = Post(user_id=7, image_url="https://i.pinimg.com/originals/94/c7/f6/94c7f6ec67c2ca2de332d81185f8c98a.jpg", caption='Good Morning! Prague, Czech Republic')
@@ -16,13 +15,13 @@ def seed_posts():
   post9 = Post(user_id=1, image_url="https://i.pinimg.com/originals/94/62/86/946286e14bb6795c6baa1f33b4a066f9.jpg", caption='Definitely worth the visit. Singapore, Singapore')
   post10 = Post(user_id=2, image_url="https://imageio.forbes.com/specials-images/imageserve/61a11bdb7afd3d7797865eb5/8-Giraffes-Credit-Micato-Safaris/960x0.jpg?fit=bounds&format=jpg&width=960", caption='Must have been my favorite trip yet. Kenya, Africa')
   post11 = Post(user_id=3, image_url="https://i.pinimg.com/originals/d4/a8/18/d4a8187342cbf142a2af9ce53e8716f3.jpg", caption='Day 2 of our trip! Cape Town, South Africa')
-  post12 = Post(user_id=4, image_url="https://i.pinimg.com/736x/e1/ec/d6/e1ecd6ba7680caa54513e5fa17c0c672.jpg", caption='Captivating! Rio de Janeiro, Brazil')
+  post12 = Post(user_id=4, image_url="https://i.pinimg.com/736x/e1/ec/d6/e1ecd6ba7680caa54513e5fa17c0c672.jpg", caption='My new routine: Journey. Explore. Discover. Repeat. Rio de Janeiro, Brazil')
   post13 = Post(user_id=5, image_url="https://i.pinimg.com/736x/6b/13/36/6b133622c75a24990f25b085287840a7.jpg", caption='Breakfast anyone? Rio de Janeiro, Brazil')
-  post14 = Post(user_id=6, image_url="https://i.pinimg.com/originals/3f/ca/c4/3fcac4b7b35227224fc34bd318b4e446.jpg", caption='Cherry blossoms. Incheon, South Korea')
+  post14 = Post(user_id=6, image_url="https://i.pinimg.com/originals/3f/ca/c4/3fcac4b7b35227224fc34bd318b4e446.jpg", caption='Only going places that spark joy. Incheon, South Korea')
   post15 = Post(user_id=7, image_url="https://i.pinimg.com/736x/aa/2e/53/aa2e53141faccbef1a9955489d537efb.jpg", caption='Astonishing Bukchon Hanok Village. Seoul, South Korea')
   post16 = Post(user_id=8, image_url="https://i.pinimg.com/564x/69/c8/6f/69c86fd81765be46113c311cd6d2434f.jpg", caption='We had such a great time here! Suzhou, China')
   post17 = Post(user_id=1, image_url="https://i.pinimg.com/736x/69/07/48/690748daa59128aeb5ed2024cca1f9e7.jpg", caption='When the light is just right. Shanhaiguan, China')
-  post18 = Post(user_id=2, image_url="https://i.pinimg.com/736x/73/6e/f9/736ef9f4783f41153936b682d6815624.jpg", caption='Streets of Taipei. Taipei, Taiwan')
+  post18 = Post(user_id=2, image_url="https://i.pinimg.com/736x/73/6e/f9/736ef9f4783f41153936b682d6815624.jpg", caption='Take memories, leave footprints. Taipei, Taiwan')
   post19 = Post(user_id=3, image_url="https://i.pinimg.com/originals/6a/76/45/6a76458705669eaaef3474e277397784.jpg", caption='Loving out time in Australia! Sydney, Australia')
   post20 = Post(user_id=4, image_url="https://i.pinimg.com/564x/80/6c/56/806c5625356b478425e6a1d0c6a6c4b1.jpg", caption='This was such a charming town! Guanajuato, Mexico')
   post21 = Post(user_id=5, image_url="https://i.pinimg.com/originals/3b/4a/98/3b4a98477fff2ed2b515851eb86f06cd.jpg", caption='It was such a cold day, but definitely worth the trip. Vik i Myrdal, Iceland')
@@ -35,7 +34,7 @@ def seed_posts():
   post28 = Post(user_id=4, image_url="https://images.unsplash.com/photo-1565081127922-ef42bf06f320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80", caption='Visited Sheikh Zayed Grand Mosque on the last day of our trp. Abu Dhabi, UAE')
   post29 = Post(user_id=5, image_url="https://i.pinimg.com/736x/fa/92/0b/fa920bc72f408b933913a91828c20c09.jpg", caption='Crawford Notch, New Hampshire')
   post30 = Post(user_id=6, image_url="https://i.pinimg.com/736x/04/5e/b7/045eb75f95e44d554a90eda3d609e57e.jpg", caption='Serengeti National Park, Tanzania')
-  post31 = Post(user_id=7, image_url="https://i.pinimg.com/736x/bd/05/df/bd05df9c58ff10ad5ce2b39e16df9545--travel-alaska-alaska-usa.jpg", caption='Palmer, Alaska')
+  post31 = Post(user_id=7, image_url="https://i.pinimg.com/736x/bd/05/df/bd05df9c58ff10ad5ce2b39e16df9545--travel-alaska-alaska-usa.jpg", caption='I have found my happy place. Palmer, Alaska')
   post32 = Post(user_id=8, image_url="https://i.pinimg.com/736x/75/16/91/751691657e6849374df61df0f1a0b7dd--india-travel-incredible-india.jpg", caption='What a remarkable place to visit. Udalpur, India')
   post33 = Post(user_id=1, image_url="https://i.pinimg.com/736x/d9/78/c5/d978c581623ff8a31606966ebad887c0.jpg", caption='Sunset and rice fields. Sapa, Vietnam')
   post34 = Post(user_id=2, image_url="https://i.pinimg.com/736x/d9/85/e5/d985e53bf2433250147c0e01a816183b.jpg", caption='"Not all who wander are lost"-J.R.R.Tolkien. Buenos Aires, Argentina')
