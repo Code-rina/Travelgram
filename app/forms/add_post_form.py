@@ -6,7 +6,7 @@ from app.models import Post
 
 def image_valid(form, field):
     image_url = field.data
-    if "http" not in "image_url" or "https" not in "image_url" or "." not in "image_url":
+    if "http" not in "image_url" or "." not in "image_url":
         raise ValidationError("Please provide a valid url.")
 
 class AddPostForm(FlaskForm):

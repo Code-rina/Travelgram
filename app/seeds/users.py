@@ -21,14 +21,13 @@ def seed_users():
         username='IamJenny', fullname='Jennifer Simpson', email='jsimpson@email.com', profile_img='https://www.followmeaway.com/wp-content/uploads/2019/02/how-to-pose-in-travel-photos-for-Instagram-burney-falls.jpg', password='password')
     
     db.session.add(demo)
-    db.session.add(admin)
+    db.session.add(kate)
     db.session.add(justin)
     db.session.add(anna)
     db.session.add(ella)
     db.session.add(david)
     db.session.add(sam)
     db.session.add(jennifer)
-    db.session.add(kate)
 
     db.session.commit()
 
