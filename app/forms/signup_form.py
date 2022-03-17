@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError, Length
+from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
 
@@ -20,29 +20,38 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-def profile_img_valid(form, field):
-    profile_img = field.data
-    if "http" not in "profile_img" or "https" not in "profile_img" or "." not in "profile_img":
-        raise ValidationError("Please provide a valid url.")
+# def profile_url_valid(form, field):
+#     profile_img = field.data
+#     if "https" not in profile_img:
+#         raise ValidationError("Please provide a valid url.")
 
 
-def profile_img_length(form, field):
-    profile_image = field.data
-    if (len(profile_image) > 255):
-        raise ValidationError("Image irl must be less than 255 characters.")
+# def profile_url_len(form, field):
+#     updated_profile_img = field.data
+#     if (len(updated_profile_img) > 255):
+#         raise ValidationError("Image url must be less than 255 characters.")
 
+def email_len(form, field): 
+    updated_email = field.data
+    if len(updated_email) > 255:
+        raise ValidationError("Email must be less than 255 characters.")
+    
+def username_len(form, field):
+    updated_username = field.data
+    if len(updated_username) > 40: 
+        raise ValidationError("Username must be less than 40 characters.")
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired('Username is required.'),
-        Length(max=35, message="Username must be less than 35 characters."),
-        username_exists])
+        'username', validators=[DataRequired('Please enter a username.'),
+        username_exists, email_len])
 
     fullname = StringField('fullname', validators=[DataRequired('Full name is required.')])
 
-    email = StringField('email', validators=[DataRequired('Email is required.'),
-        Email(message='Must be a valid email.'), user_exists])
+    email = StringField('email', validators=[DataRequired(message='Email is required.'), user_exists, email_len])
+
 
     password = StringField('password', validators=[DataRequired('Password is required.')])
 
-    profile_img = StringField('profile_img', validators=[DataRequired(), profile_img_valid])
+    profile_img = StringField('profile_img', validators=[DataRequired()])
+    # , profile_url_valid, profile_url_len

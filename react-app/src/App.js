@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import LoginForm from './components/auth/LoginForm'
+// import SignUpForm from './components/auth/SignUpFormModal/SignUpForm';
+import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Home from './components/Home/Home'
+import AllPosts from './components/AllPosts/AllPosts'
+import SinglePost from './components/SinglePost/SinglePost'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,15 +28,22 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <>
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
+        <ProtectedRoute path='/posts' exact={true} >
+          <AllPosts />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:id' exact={true} >
+          <SinglePost />
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -41,10 +51,11 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Home />
         </ProtectedRoute>
       </Switch>
-    </BrowserRouter>
+    </>
+    // </BrowserRouter>
   );
 }
 

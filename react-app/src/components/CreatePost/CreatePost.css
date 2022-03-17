@@ -1,0 +1,13 @@
+.Modal{
+    overflow: hidden;
+    border-radius: 12px;
+}
+.add-post-main-container {
+    margin: auto;
+    width: 500px;
+    border-radius: 10px;
+}
+.errors {
+    color: red;
+}
+  

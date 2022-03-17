@@ -1,0 +1,12 @@
+.Modal{
+    overflow: hidden;
+    border-radius: 12px;
+}
+.signup-main-box {
+    margin: auto;
+    width: 500px;
+    border-radius: 10px;
+}
+.errors {
+    color: white;
+}
