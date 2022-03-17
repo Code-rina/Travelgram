@@ -65,6 +65,11 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
         return data
     }
 }
+
+// export const editPostThunk = ({ caption }) => async (dispatch) => {
+//     const response = await fetch(`/api/posts/editpost`)
+// }
+
 //----------------------------------
 
 const initialState = { posts: {} }
@@ -83,7 +88,7 @@ const postReducer = (state = initialState, action) => {
         }
         case ADD_POST: {
             newState = {...state};
-            newState[action.post.id] = action.post
+            newState.posts = {...state.posts, [action.post.id]: action.post}
             // console.log("newState::::::", newState)
             return newState;
         }

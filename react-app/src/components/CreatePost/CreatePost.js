@@ -30,7 +30,7 @@ function AddPostForm({ closeModal }) {
       history.push(`/`);
       closeModal(false);
     }
-    window.location.reload(false)
+    // window.location.reload(false)
   }
   
   return (
