@@ -28,7 +28,7 @@ function AllPosts(){
 
     return (
         <div className="posts-feed-container">
-            {allPostsArray?.map((post) => ( 
+            {allPostsArray?.sort((a,b)=> (a.id < b.id ? 1 : -1)).map((post) => ( 
                 <div className="posts-all-container">
                     <div className="posts-user">{post?.username}</div>
                         <Link id="single-post-link" to={`/posts/${post?.id}`}>
