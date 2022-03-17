@@ -78,7 +78,7 @@ const postReducer = (state = initialState, action) => {
         }
         case LOAD_POST: {
             newState = {...state};
-            newState.posts = newState.post
+            newState.post = newState.posts
             return newState;
         }
         case ADD_POST: {
