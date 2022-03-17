@@ -19,6 +19,7 @@ class Post(db.Model):
     return {
       'id': self.id,
       'user_id': self.user_id,
+      'username': self.user.username if self.user else None,
       'image_url': self.image_url,
       'caption': self.caption,
       'created_at': self.created_at,

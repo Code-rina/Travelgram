@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home/Home'
+import AllPosts from './components/AllPosts/AllPosts'
+import SinglePost from './components/SinglePost/SinglePost'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,6 +38,12 @@ function App() {
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
+        <ProtectedRoute path='/posts' exact={true} >
+          <AllPosts />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:id' exact={true} >
+          <SinglePost />
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
