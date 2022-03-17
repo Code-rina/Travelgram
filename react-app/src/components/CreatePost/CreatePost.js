@@ -6,7 +6,7 @@ import { addOnePostThunk } from "../../store/post";
 
 
 
-function AddPostForm({onClose}) {
+function AddPostForm({ closeModal }) {
     const dispatch = useDispatch();
     //   const { spotId } = useParams();
     const sessionUser = useSelector((state) => state?.session?.user);
@@ -16,8 +16,7 @@ function AddPostForm({onClose}) {
     const [errors, setErrors] = useState([]);
     const [caption, setCaption] = useState('');
     const [imageUrl, setImageUrl] = useState('')
-
-
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +28,9 @@ function AddPostForm({onClose}) {
     const newPost = await dispatch(addOnePostThunk(payload));
     if (newPost) {
       history.push(`/`);
+      closeModal(false);
     }
+    window.location.reload(false)
   }
   
   return (
@@ -48,9 +49,9 @@ function AddPostForm({onClose}) {
           <img
             alt='post_preview'
             src={imageUrl}
-            autoComplete="off"
+            // autoComplete="off"
             placeholder="Image URL"
-            required
+            // required
             onError={(e) =>
               (e.target.src =
                 "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
@@ -79,13 +80,13 @@ function AddPostForm({onClose}) {
       </div>
       <div className="add-post-create-div">
         <button
-          className="add-post-create-button"
-          type="submit"
-          disabled={errors.length > 0}
+            type="submit"
+            className="add-post-create-button"
+        //   disabled={errors.length > 0}
         >
           Post
         </button>
-        <button className="cancel-add-button" type="true" onClick={onClose}>
+        <button className="cancel-add-button" type="true" onClick={ closeModal }>
           Cancel
         </button>
       </div>

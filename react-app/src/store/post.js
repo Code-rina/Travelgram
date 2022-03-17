@@ -49,15 +49,15 @@ export const getOnePostThunk = (id) => async (dispatch) => {
     }
 }
 
-export const addOnePostThunk = ({userId, imageUrl, caption}) => async (dispatch) => {
-    const response = await fetch(`/api/posts/`, {
+export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch) => {
+    const response = await fetch(`/api/posts/addpost`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
-        'user_id': userId,
-        'image_url': imageUrl,
-        caption  
-        }) 
+            "user_id": userId,
+            "image_url": imageUrl,
+            caption
+        }),
     })
     if (response.ok) {
         const data = await response.json();
@@ -67,7 +67,7 @@ export const addOnePostThunk = ({userId, imageUrl, caption}) => async (dispatch)
 }
 //----------------------------------
 
-const initialState = { posts: {}, post: {}}
+const initialState = { posts: {} }
 const postReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
@@ -78,13 +78,13 @@ const postReducer = (state = initialState, action) => {
         }
         case LOAD_POST: {
             newState = {...state};
-            newState.post = newState.posts
+            newState[action.post.id] = action.post
             return newState;
         }
         case ADD_POST: {
             newState = {...state};
-            newState.posts = action.post
-            console.log("newState::::::", newState)
+            newState[action.post.id] = action.post
+            // console.log("newState::::::", newState)
             return newState;
         }
         default:
