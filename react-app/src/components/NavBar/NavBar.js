@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import AddPostModal from '../CreatePost/index'
 import './NavBar.css'
 // import DemoUser from './auth/DemoUser'
 
@@ -20,28 +21,15 @@ const NavBar = () => {
             Home
           </NavLink>
         </div>}
-        {/* {sessionUser && 
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>}
-        {sessionUser && 
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>} */}
-        <div className="navbar-demo-container">
-          {/* <div className='navbar-demo-button'>
-            <DemoUser />
-          </div> */}
-        </div>
         {sessionUser && 
         <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
+        </div>}
+        {sessionUser && 
+        <div>
+          <AddPostModal />
         </div>}
         {sessionUser && 
         <div>

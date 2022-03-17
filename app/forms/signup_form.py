@@ -20,16 +20,16 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-def profile_url_valid(form, field):
-    profile_img = field.data
-    if "https" not in profile_img:
-        raise ValidationError("Please provide a valid url.")
+# def profile_url_valid(form, field):
+#     profile_img = field.data
+#     if "https" not in profile_img:
+#         raise ValidationError("Please provide a valid url.")
 
 
-def profile_url_len(form, field):
-    updated_profile_img = field.data
-    if (len(updated_profile_img) > 255):
-        raise ValidationError("Image url must be less than 255 characters.")
+# def profile_url_len(form, field):
+#     updated_profile_img = field.data
+#     if (len(updated_profile_img) > 255):
+#         raise ValidationError("Image url must be less than 255 characters.")
 
 def email_len(form, field): 
     updated_email = field.data
@@ -53,5 +53,5 @@ class SignUpForm(FlaskForm):
 
     password = StringField('password', validators=[DataRequired('Password is required.')])
 
-    profile_img = StringField('profile_img', validators=[DataRequired(), profile_url_valid, profile_url_len])
-    # profile_url_valid, profile_url_len
+    profile_img = StringField('profile_img', validators=[DataRequired()])
+    # , profile_url_valid, profile_url_len
