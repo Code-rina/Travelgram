@@ -35,13 +35,15 @@ def get_one_post(id):
 
 
 # Creating a post
-@post_routes.route('/', methods=["POST"])
+@post_routes.route('/addpost', methods=["POST"])
 def create_post():
+  data = request.json
   form = AddPostForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   if form.validate_on_submit():
-    post = Post(user_id=form.data['user_id'], caption=form.data['caption'], image_url=form.data['image_url'])
+
+    post = Post(user_id=data['user_id'], caption=form.data['caption'], image_url=form.data['image_url'])
 
     db.session.add(post)
 

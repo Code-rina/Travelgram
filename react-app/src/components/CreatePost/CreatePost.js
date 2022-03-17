@@ -48,9 +48,9 @@ function AddPostForm({onClose}) {
           <img
             alt='post_preview'
             src={imageUrl}
-            autoComplete="off"
+            // autoComplete="off"
             placeholder="Image URL"
-            required
+            // required
             onError={(e) =>
               (e.target.src =
                 "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
