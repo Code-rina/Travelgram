@@ -10,14 +10,16 @@ function AllPosts(){
     const dispatch = useDispatch()
     const history = useHistory()
     const allPosts = useSelector((state) => state?.post?.posts)
-    console.log("allPosts::::::", allPosts)
+    // console.log("allPosts::::::", allPosts)
  
     const user = useSelector((state) => state.session.user.username);
+
     
     // const { id } = useParams()
 
    const allPostsArray = Object.values(allPosts)
-   console.log("allPostsArray::::::", allPostsArray)
+//    console.log("allPostsArray::::::", allPostsArray)
+
     useEffect(() => {
         dispatch(getAllPostsThunk())
     }, [dispatch]);

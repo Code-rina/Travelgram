@@ -16,8 +16,7 @@ function AddPostForm({ closeModal }) {
     const [errors, setErrors] = useState([]);
     const [caption, setCaption] = useState('');
     const [imageUrl, setImageUrl] = useState('')
-
-
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +30,7 @@ function AddPostForm({ closeModal }) {
       history.push(`/`);
       closeModal(false);
     }
+    window.location.reload(false)
   }
   
   return (

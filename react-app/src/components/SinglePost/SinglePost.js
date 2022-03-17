@@ -12,8 +12,8 @@ function SinglePost(){
    const history = useHistory()
    const user = useSelector((state) => state.session.user);
    const { id } = useParams()
-   const post = useSelector((state) => state?.post?.post[id])
-    console.log("post:::::::",post)
+   const post = useSelector((state) => state?.post[id])
+    // console.log("post:::::::",post)
     
     useEffect(() => {
         dispatch(getOnePostThunk(id))
