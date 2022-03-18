@@ -1,30 +1,30 @@
-# from flask import Blueprint, abort, request
-# from flask_login import login_required
-# from app.models import Post, User, db
-# from app.forms.add_comment_form import AddCommentForm
-# from app.forms.edit_comment_form import EditCommentForm
+from flask import Blueprint, abort, request
+from flask_login import login_required
+from app.models import Post, Comment, db
+from app.forms.add_comment_form import AddCommentForm
+from app.forms.edit_comment_form import EditCommentForm
 
 
-# post_routes = Blueprint('comments', __name__)
+comment_routes = Blueprint('comments', __name__)
 
 
-# def validation_errors_to_error_messages(validation_errors):
-#     """
-#     Simple function that turns the WTForms validation errors into a simple list
-#     """
-#     errorMessages = []
-#     for field in validation_errors:
-#         for error in validation_errors[field]:
-#             errorMessages.append(f'{error}')
-#     return errorMessages
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{error}')
+    return errorMessages
 
 
-# # Getting all posts
-# @post_routes.route('/')
-# def get_all_posts():
-#   posts = Post.query.all()
+# Getting all comments
+@comment_routes.route('/')
+def get_all_comments():
+  comments = Comment.query.all()
 
-#   return {"posts": [post.to_dict() for post in posts]}
+  return {"comments": [comment.to_dict() for comment in comments]}
 
 
 # # Getting one post

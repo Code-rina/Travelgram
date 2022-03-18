@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getOnePostThunk } from '../../store/post';
 import { deleteOnePostThunk } from '../../store/post';
 import EditPostModal from '../EditPost/index';
+import GetAllComments from '../GetAllComments/GetAllComments';
 
 import './SinglePost.css';
 
@@ -62,10 +63,9 @@ function SinglePost(){
                 }
             />
             <div className="post-description">{post?.caption}</div>
-            {/* <EditPostModal postId={post?.id} /> */}
-            {/* <button className="delete-button" onClick={handleDelete}>
-                Delete Your Post
-            </button> */}
+            <div>
+                <GetAllComments />
+            </div>
     </div>
     )
 }    
