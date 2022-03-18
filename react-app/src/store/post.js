@@ -116,7 +116,8 @@ const postReducer = (state = initialState, action) => {
         }
         case EDIT_POST: {
             newState = {...state};
-            newState[action.post.id] = action.post
+            newState.posts = {...state.posts, [action.post.id]: action.post}
+            // console.log("newState::::::", newState)
             return newState;
         }
         default:
