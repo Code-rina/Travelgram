@@ -2,7 +2,7 @@ from app.models import db, Comment
 
 
 
-def seed_comments():
+def seed_comments():   
 
   comment1 = Comment(user_id=1, post_id=1, comment='Wow! 🤩')
   comment2 = Comment(user_id=2, post_id=2, comment='I always wanted to visit!')

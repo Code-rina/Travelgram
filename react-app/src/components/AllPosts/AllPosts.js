@@ -4,6 +4,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { getAllPostsThunk } from '../../store/post'
 
 
+
 import './AllPosts.css';
 
 
@@ -48,7 +49,6 @@ function AllPosts(){
                                 />
                         </Link>
                     <div className='post-caption'>{post?.caption}</div>
-                    
                 </div>
             ))}
         </div>
