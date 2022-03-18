@@ -38,7 +38,7 @@ function AddPostForm({ closeModal }) {
     const errors = []
     if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
     if(imageUrl?.length > 255) errors.push("Valid Image Url has to be less than 255 characters.")
-    if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
+    // if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
     if(!imageUrl?.includes("http" || "https")) errors.push("Valid Image Url has to start with 'http' or 'https'.")
     setErrors(errors)
   }, [imageUrl, caption])
@@ -82,7 +82,6 @@ function AddPostForm({ closeModal }) {
           <textarea
             id="add-post-label-caption"
             placeholder="Caption"
-            autoComplete="off"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
           />
