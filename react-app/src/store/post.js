@@ -2,6 +2,7 @@ const LOAD_POSTS = "posts/LOAD_POSTS";
 const LOAD_POST = 'posts/LOAD_POST';
 const ADD_POST = 'posts/ADD_POST';
 const EDIT_POST = 'posts/EDIT_POST';
+const DELETE_POST = 'posts/DELETE_POST';
 
 
 //----------------------------------
@@ -30,6 +31,13 @@ export const addOnePostAction = (post) => {
 export const editOnePostAction = (post) => {
     return {
         type: EDIT_POST,
+        post
+    }
+}
+
+export const deleteOnePostAction = (post) => {
+    return {
+        type: DELETE_POST,
         post
     }
 }
@@ -75,7 +83,7 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
 }
 
 export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
-    console.log("caption:::::::",caption)
+    // console.log("caption:::::::",caption)
     
     const response = await fetch(`/api/posts/editpost/${id}`, {
         method: 'PUT',
@@ -84,11 +92,20 @@ export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
             caption
         }),
     })
-    console.log("response:::::", response)
+    // console.log("response:::::", response)
     if (response.ok) {
         const data = await response.json();
         dispatch(editOnePostAction(data))
         return data
+    }
+}
+
+export const deleteOnePostThunk = (id) => async (dispatch) => {
+    const response = await fetch(`/api/posts/deletepost/${id}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(deleteOnePostAction(id))
     }
 }
 
@@ -119,7 +136,13 @@ const postReducer = (state = initialState, action) => {
             newState.posts = {...state.posts, [action.post.id]: action.post}
             // console.log("newState::::::", newState)
             return newState;
+        }  
+        case DELETE_POST: {
+            newState = {...state};
+            delete newState[action.post]
+            return newState;
         }
+
         default:
             return state
     }    

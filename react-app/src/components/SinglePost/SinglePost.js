@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getOnePostThunk } from '../../store/post';
+import { deleteOnePostThunk } from '../../store/post';
 import EditPostModal from '../EditPost/index';
 
 import './SinglePost.css';
@@ -30,6 +31,13 @@ function SinglePost(){
     if (!user) {
         history.push(`/login`)
     }
+    console.log("posts:::::", post)
+    const handleDeletePost = async(e) => {
+        e.preventDefault();
+        await dispatch(deleteOnePostThunk(post?.id))
+        history.push('/')
+    }
+
     return (
         <div className="singlepost-main-container">
           <p>{post.username}</p>
@@ -37,6 +45,11 @@ function SinglePost(){
                 {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
                         <EditPostModal />
+                    </div>
+                : null}
+                {(sessionUser?.id === onePost?.user_id) ? 
+                    <div>
+                        <button className='delete-post-button' onClick={handleDeletePost}>Delete</button>
                     </div>
                 : null}
             </div>

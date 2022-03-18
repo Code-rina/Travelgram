@@ -73,3 +73,14 @@ def edit_post(id):
     return edit_post.to_dict()
   else:
     return{'errors': validation_errors_to_error_messages(form.errors)}
+
+# Delete a post
+@post_routes.route('/deletepost/<int:id>', methods=["DELETE"])
+def delete_post(id):
+  delete_post = Post.query.get(id)
+
+  db.session.delete(delete_post)
+  db.session.commit()
+
+  return {id: delete_post.id}
+    
