@@ -1,6 +1,7 @@
 const LOAD_POSTS = "posts/LOAD_POSTS";
 const LOAD_POST = 'posts/LOAD_POST';
 const ADD_POST = 'posts/ADD_POST';
+const EDIT_POST = 'posts/EDIT_POST';
 
 
 //----------------------------------
@@ -22,6 +23,13 @@ export const loadOnePostAction = (post) => {
 export const addOnePostAction = (post) => {
     return {
         type: ADD_POST,
+        post
+    }
+}
+
+export const editOnePostAction = (post) => {
+    return {
+        type: EDIT_POST,
         post
     }
 }
@@ -52,7 +60,7 @@ export const getOnePostThunk = (id) => async (dispatch) => {
 export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch) => {
     const response = await fetch(`/api/posts/addpost`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             "user_id": userId,
             "image_url": imageUrl,
@@ -65,6 +73,25 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
         return data
     }
 }
+
+export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
+    console.log("caption:::::::",caption)
+    
+    const response = await fetch(`/api/posts/editpost/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            caption
+        }),
+    })
+    console.log("response:::::", response)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editOnePostAction(data))
+        return data
+    }
+}
+
 //----------------------------------
 
 const initialState = { posts: {} }
@@ -83,7 +110,13 @@ const postReducer = (state = initialState, action) => {
         }
         case ADD_POST: {
             newState = {...state};
-            newState[action.post.id] = action.post
+            newState.posts = {...state.posts, [action.post.id]: action.post}
+            // console.log("newState::::::", newState)
+            return newState;
+        }
+        case EDIT_POST: {
+            newState = {...state};
+            newState.posts = {...state.posts, [action.post.id]: action.post}
             // console.log("newState::::::", newState)
             return newState;
         }

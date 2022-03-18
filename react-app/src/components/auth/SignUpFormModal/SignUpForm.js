@@ -10,7 +10,7 @@ const SignUpForm = () => {
   const [username, setUsername] = useState('');
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
-  const [profileImg, setProfileImg] = useState('');
+  // const [profileImg, setProfileImg] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const sessionUser = useSelector(state => state.session.user);
@@ -18,15 +18,15 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      const data = await dispatch(signUp(username, fullname, email, profileImg, password, confirmPassword));
+    // if (password === confirmPassword) {
+    //   setErrors([]);
+      const data = await dispatch(signUp(username, fullname, email, password));
       if (data) {
         setErrors(data)
       }
-      return null;
-    }
-    return setErrors(['Passwords Must Match'])
+    //   return null;
+    // }
+    // return setErrors(['Passwords Must Match'])
   }
 
   const updateFullname = (e) => {
@@ -49,9 +49,9 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const updateProfileImg = (e) => {
-    setProfileImg(e.target.value);
-  };
+  // const updateProfileImg = (e) => {
+  //   setProfileImg(e.target.value);
+  // };
 
   if (sessionUser) {
     return <Redirect to='/' />;
@@ -69,15 +69,16 @@ const SignUpForm = () => {
             ))}
           </div>
           <div>
-            <label>
+              <label htmlFor='fullname'>Full name</label>
               <input
                 className='form-input-field'
                 type='text'
                 placeholder='Full name'
-                name='firstName'
+                name='fullname'
                 onChange={updateFullname}
                 value={fullname}
               />
+              <label htmlFor='username'>Username</label>
               <input
               type='text'
               className='form-input-field'
@@ -86,14 +87,16 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
               />
+              <label htmlFor='email'>Email</label>
               <input
-                type='text'
-                className='form-input-field'
-                placeholder='Email'
-                name='email'
-                onChange={updateEmail}
-                value={email}
+              type='text'
+              className='form-input-field'
+              placeholder='Email'
+              name='email'
+              onChange={updateEmail}
+              value={email}
               />
+              <label htmlFor='password'>Password</label>
               <input
               type='password'
               className='form-input-field'
@@ -102,6 +105,7 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
               />
+              <label htmlFor='confirm_password'>Confirm Password</label>
               <input
                 type='password'
                 className='form-input-field'
@@ -109,9 +113,9 @@ const SignUpForm = () => {
                 name='confirm_password'
                 onChange={updateConfirmPassword}
                 value={confirmPassword}
-                required={true}
+                // required={true}
               />
-              <input
+              {/* <input
                 type="text"
                 className='form-input-field'
                 placeholder="Url here ..."
@@ -119,8 +123,7 @@ const SignUpForm = () => {
                 onChange={updateProfileImg}
                 value={profileImg}
                 required={true}
-              />
-            </label>
+              /> */}
           </div>
           <div>
             <button type='submit' className='signUp-button-form'>Submit</button>

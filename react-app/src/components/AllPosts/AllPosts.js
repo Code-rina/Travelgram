@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { getAllPostsThunk } from '../../store/post'
 
+
 import './AllPosts.css';
 
 
@@ -13,12 +14,15 @@ function AllPosts(){
     // console.log("allPosts::::::", allPosts)
  
     const user = useSelector((state) => state.session.user.username);
+    const [sessionId, setSessionId] = useState()
 
     
     // const { id } = useParams()
 
    const allPostsArray = Object.values(allPosts)
 //    console.log("allPostsArray::::::", allPostsArray)
+
+   
 
     useEffect(() => {
         dispatch(getAllPostsThunk())

@@ -2,6 +2,7 @@ from flask import Blueprint, abort, request
 from flask_login import login_required
 from app.models import Post, User, db
 from app.forms.add_post_form import AddPostForm
+from app.forms.edit_post_form import EditPostForm
 
 
 post_routes = Blueprint('posts', __name__)
@@ -49,6 +50,26 @@ def create_post():
 
     db.session.commit()
 
-    return post.to_dict()
+    return post.to_dict()   
+  else:
+    return{'errors': validation_errors_to_error_messages(form.errors)}
+
+# Edit a post
+@post_routes.route('/editpost/<int:id>', methods=["PUT"])
+def edit_post(id):
+
+  form = EditPostForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  edit_post = Post.query.get(id)
+
+  if form.validate_on_submit():
+    # print('post::::', edit_post)
+    edit_post.caption = form.data['caption']
+
+
+    db.session.commit()
+
+    return edit_post.to_dict()
   else:
     return{'errors': validation_errors_to_error_messages(form.errors)}
