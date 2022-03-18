@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
@@ -15,6 +15,9 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+
+  
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -49,6 +52,21 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
+  // useEffect(() => {
+  //   const errors = []
+  //   if(username?.length > 35) errors.push("Username must be less than 35 characters.")
+  //   // if(username?.length === 0) errors.push("Please provide a username.")
+  //   if(fullname?.length > 255) errors.push("Full name must be less than 255 characters.")
+  //   // if(fullname?.length === 0) errors.push("Please provide a fullname.")
+  //   if(email?.length > 255) errors.push("Email must be less than 255 characters.")
+  //   // if(email?.length === 0) errors.push("Please provide an email.")
+  //   // if(!email?.includes("www" || "." || "@")) errors.push("Please provide a valid email address.")
+  //   // if(password?.length === 0) errors.push("Please provide a password.")
+  //   // if(confirmPassword?.length === 0) errors.push("Please confirm your password.")
+  //   if(password !== confirmPassword) errors.push("Both passwords must match.")
+  //   setErrors(errors)
+  // }, [username, fullname, email, password, confirmPassword])
+
   // const updateProfileImg = (e) => {
   //   setProfileImg(e.target.value);
   // };
@@ -56,6 +74,9 @@ const SignUpForm = () => {
   if (sessionUser) {
     return <Redirect to='/' />;
   }
+
+ 
+
 
   return (
     <div className='signup-main-box'>

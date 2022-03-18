@@ -12,6 +12,6 @@ from app.models import Post
 class AddPostForm(FlaskForm):
     caption = TextAreaField('caption')
     image_url = StringField('image_url', validators=[
-                           DataRequired()])
+                           DataRequired(message='Please provide an Image URL.')])
                         #    , image_valid
     submit = SubmitField('submit')

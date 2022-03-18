@@ -11,7 +11,7 @@ const DemoButton = () => {
 
   const handleDemo = async (e) => {
     e.preventDefault();
-    const email = "demo@aa.io";
+    const email = "demo@a.a.io";
     const password = "password";
     await dispatch(sessionActions.login(email, password));
     history.push("/");

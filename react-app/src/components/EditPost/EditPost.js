@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editOnePostThunk } from "../../store/post";
+import { editOnePostThunk, getOnePostThunk } from "../../store/post";
 
 
 
@@ -31,6 +31,17 @@ function EditPostForm({ closeModal }) {
       closeModal(false);
     }
   }
+
+  useEffect(() => {
+    dispatch(getOnePostThunk(id))
+    if(caption) localStorage.setItem("caption", post?.id)
+  }, [])
+
+  useEffect(() => {
+    const errors = []
+    if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
+    setErrors(errors)
+  }, [caption])
   
   return (
     <div className="edit-post-main-container">

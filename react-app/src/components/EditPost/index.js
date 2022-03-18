@@ -9,7 +9,7 @@ function EditPostModal() {
 
     return (
       <div>
-        <button className='edit-post-button' onClick={() => setShowModal(true)}><i class="fa-solid fa-ellipsis"></i></button>
+        <button className='edit-post-button' onClick={() => setShowModal(true)}>Edit</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <EditPostForm className='add-post-modal' closeModal={() => setShowModal(false)}/>
