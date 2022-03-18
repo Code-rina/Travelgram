@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getOnePostThunk } from '../../store/post';
+import EditPostModal from '../EditPost/index';
 
 import './SinglePost.css';
 
@@ -13,6 +14,7 @@ function SinglePost(){
    const user = useSelector((state) => state.session.user);
    const { id } = useParams()
    const post = useSelector((state) => state?.post[id])
+   const sessionUser = useSelector((state) => state.session?.user)
     // console.log("post:::::::",post)
     
     useEffect(() => {
@@ -29,6 +31,12 @@ function SinglePost(){
     return (
         <div className="singlepost-main-container">
           <p>{post.username}</p>
+            <div className="edit-delete-icon">
+                {sessionUser && 
+                    <div>
+                        <EditPostModal />
+                    </div>}
+            </div>
             <img className='single-post-feed-img'
                 alt={post?.image_url}
                 src={post?.image_url}

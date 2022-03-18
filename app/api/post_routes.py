@@ -55,21 +55,21 @@ def create_post():
     return{'errors': validation_errors_to_error_messages(form.errors)}
 
 # Edit a post
-# @post_routes.route('/editpost', methods=["PUT"])
-# def edit_post(id):
-#   data = request.json
-#   form = EditPostForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
+@post_routes.route('/editpost/<int:id>', methods=["PUT"])
+def edit_post(id):
 
-#   post = Post.query.get(id)
+  form = EditPostForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
-#   if form.validate_on_submit():
-#     post.caption=form.data['caption']
+  edit_post = Post.query.get(id)
 
-#     db.session.add(post)
+  if form.validate_on_submit():
+    # print('post::::', edit_post)
+    edit_post.caption = form.data['caption']
 
-#     db.session.commit()
 
-#     return post.to_dict()
-#   else:
-#     return{'errors': validation_errors_to_error_messages(form.errors)}
+    db.session.commit()
+
+    return edit_post.to_dict()
+  else:
+    return{'errors': validation_errors_to_error_messages(form.errors)}
