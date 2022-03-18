@@ -9,14 +9,16 @@ import './SinglePost.css';
 
 
 function SinglePost(){
-   const dispatch = useDispatch()
-   const history = useHistory()
-   const user = useSelector((state) => state.session.user);
-   const { id } = useParams()
-   const post = useSelector((state) => state?.post[id])
-   const sessionUser = useSelector((state) => state.session?.user)
-    // console.log("post:::::::",post)
-    
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const user = useSelector((state) => state.session.user);
+    const { id } = useParams()
+    const post = useSelector((state) => state?.post[id])
+    const sessionUser = useSelector((state) => state.session?.user)
+    // console.log("sessionUser:::::::", sessionUser)
+    const onePost = useSelector((state) => state.post[id])
+    // console.log("onePost:::::", onePost)
+
     useEffect(() => {
         dispatch(getOnePostThunk(id))
     }, [dispatch, id]);
@@ -32,10 +34,11 @@ function SinglePost(){
         <div className="singlepost-main-container">
           <p>{post.username}</p>
             <div className="edit-delete-icon">
-                {sessionUser && 
+                {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
                         <EditPostModal />
-                    </div>}
+                    </div>
+                : null}
             </div>
             <img className='single-post-feed-img'
                 alt={post?.image_url}

@@ -14,12 +14,15 @@ function AllPosts(){
     // console.log("allPosts::::::", allPosts)
  
     const user = useSelector((state) => state.session.user.username);
-    const sessionUser = useSelector((state) => state.session?.user)
+    const [sessionId, setSessionId] = useState()
+
     
     // const { id } = useParams()
 
    const allPostsArray = Object.values(allPosts)
 //    console.log("allPostsArray::::::", allPostsArray)
+
+   
 
     useEffect(() => {
         dispatch(getAllPostsThunk())
