@@ -7,17 +7,18 @@ import { getAllCommentsThunk } from '../../store/comment'
 import './GetAllComments.css';
 
 
-function GetAllComments() {
+function GetAllComments({id}) {
     const dispatch = useDispatch()
     const history = useHistory()
    
-    const allComments = useSelector((state) => state?.comment)
-    console.log("allComments:::::::", allComments)
+    const allComments = useSelector((state) => state?.comment?.comments)
+    console.log("allComments:::::", allComments)
+    // console.log("allComments:::::::", allComments)
     const user = useSelector((state) => state.session.user);
     // const [sessionId, setSessionId] = useState()
     // const postId = useSelector((state) => state.post[id])
-     const allCommentsArray = Object.values(allComments)
-     console.log("allCommentsArray:::::::", allCommentsArray)
+    //  const allCommentsArray = Object.values(allComments)
+    //  console.log("allCommentsArray:::::::", allCommentsArray)
     // const { id } = useParams()
 
     const post = useSelector((state) => state.post)
@@ -32,24 +33,20 @@ function GetAllComments() {
         history.push(`/login`)
     }
 
+ 
    
-    
-
 // figure out how to show only comments that are for the specific post
 // comment.post_id === post.id
 
+
     return (
      <div className="comments-main-container">
-            {allCommentsArray.map((comment) => 
-                
-                    <div className="posts-all-container">
-                        <div className="posts-user">{comment?.id}</div>
-                        <div className='post-caption'>{comment?.comment}</div>
+
+            {Object.values(allComments)?.map((comment, i) => { if (comment.post_id === id) 
+                return (<div key={i}><div>{comment.id}</div><div>{comment.comment}</div></div>)}
                         
-                    </div>
-            
+                    
             )}
-            
         </div>
     )
 }    

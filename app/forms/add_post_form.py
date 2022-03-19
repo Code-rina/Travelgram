@@ -12,7 +12,8 @@ def image_valid(form, field):
 
 class AddPostForm(FlaskForm):
     caption = TextAreaField('caption', Length(max=2200))
+    
     image_url = StringField('image_url', validators=[
                            DataRequired(message='Please provide an Image URL.'), image_valid])
-                        #    , image_valid
+  
     submit = SubmitField('submit')
