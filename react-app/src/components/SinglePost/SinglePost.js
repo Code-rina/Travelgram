@@ -6,11 +6,12 @@ import { getOnePostThunk } from '../../store/post';
 import { deleteOnePostThunk } from '../../store/post';
 import EditPostModal from '../EditPost/index';
 import GetAllComments from '../GetAllComments/GetAllComments';
+import AddCommentModal from '../CreateComment/index';
 
 import './SinglePost.css';
 
 
-function SinglePost(){
+function SinglePost({post_id}){
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector((state) => state.session.user);
@@ -32,7 +33,7 @@ function SinglePost(){
     if (!user) {
         history.push(`/login`)
     }
-    console.log("posts:::::", post)
+    // console.log("posts:::::", post)
     const handleDeletePost = async(e) => {
         e.preventDefault();
         await dispatch(deleteOnePostThunk(post?.id))
@@ -64,7 +65,8 @@ function SinglePost(){
             />
             <div className="post-description">{post?.caption}</div>
             <div>
-                <GetAllComments />
+                <AddCommentModal id={post.id} />
+                <GetAllComments id={post.id} />
             </div>
     </div>
     )

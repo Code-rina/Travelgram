@@ -26,61 +26,53 @@ def get_all_comments():
 
   return {"comments": [comment.to_dict() for comment in comments]}
 
+# Creating a comment
+@comment_routes.route('/addcomment', methods=["POST"])
+# @login_required
+def create_new_comment():
+  data = request.json
+  form = AddCommentForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+    
+  print("!!!!!!!!!!", form.data)
+  if form.validate_on_submit():
+    add_comment = Comment(user_id=form.data['user_id'], post_id=form.data['post_id'], comment=form.data['comment'])
 
-# # Getting one post
-# @post_routes.route('/<int:id>')
-# def get_one_post(id):
-#   post = Post.query.get(id)
-  
-#   return post.to_dict()
+    db.session.add(add_comment)
 
+    db.session.commit()
 
-# # Creating a post
-# @post_routes.route('/addpost', methods=["POST"])
-# def create_post():
-#   data = request.json
-#   form = AddPostForm()
+    return add_comment.to_dict()   
+  else:
+    return{'errors': validation_errors_to_error_messages(form.errors)}
+
+# # Edit a comment
+# @comment_routes.route('/editcomment/<int:id>', methods=["PUT"])
+# def edit_comment(id):
+
+#   form = EditCommentForm()
 #   form['csrf_token'].data = request.cookies['csrf_token']
 
-#   if form.validate_on_submit():
-
-#     post = Post(user_id=data['user_id'], caption=form.data['caption'], image_url=form.data['image_url'])
-
-#     db.session.add(post)
-
-#     db.session.commit()
-
-#     return post.to_dict()   
-#   else:
-#     return{'errors': validation_errors_to_error_messages(form.errors)}
-
-# # Edit a post
-# @post_routes.route('/editpost/<int:id>', methods=["PUT"])
-# def edit_post(id):
-
-#   form = EditPostForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
-
-#   edit_post = Post.query.get(id)
+#   edit_comment = Comment.query.get(id)
 
 #   if form.validate_on_submit():
-#     # print('post::::', edit_post)
-#     edit_post.caption = form.data['caption']
+#   
+#     edit_comment.comment = form.data['comment']
 
 
 #     db.session.commit()
 
-#     return edit_post.to_dict()
+#     return edit_comment.to_dict()
 #   else:
 #     return{'errors': validation_errors_to_error_messages(form.errors)}
 
-# # Delete a post
-# @post_routes.route('/deletepost/<int:id>', methods=["DELETE"])
-# def delete_post(id):
-#   delete_post = Post.query.get(id)
+# # Delete a comment
+# @comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])
+# def delete_comment(id):
+#   delete_comment = Comment.query.get(id)
 
-#   db.session.delete(delete_post)
+#   db.session.delete(delete_comment)
 #   db.session.commit()
 
-#   return {id: delete_post.id}
+#   return {id: delete_comment.id}
     
