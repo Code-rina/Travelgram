@@ -34,7 +34,7 @@ def create_new_comment():
   form = AddCommentForm()
   form['csrf_token'].data = request.cookies['csrf_token']
     
-  print("!!!!!!!!!!", form.data)
+  # print("!!!!!!!!!!", form.data)
   if form.validate_on_submit():
     add_comment = Comment(user_id=form.data['user_id'], post_id=form.data['post_id'], comment=form.data['comment'])
 
@@ -46,33 +46,33 @@ def create_new_comment():
   else:
     return{'errors': validation_errors_to_error_messages(form.errors)}
 
-# # Edit a comment
-# @comment_routes.route('/editcomment/<int:id>', methods=["PUT"])
-# def edit_comment(id):
+# Edit a comment
+@comment_routes.route('/editcomment/<int:id>', methods=["PUT"])
+def edit_comment(id):
 
-#   form = EditCommentForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
+  form = EditCommentForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
-#   edit_comment = Comment.query.get(id)
+  edit_comment = Comment.query.get(id)
 
-#   if form.validate_on_submit():
-#   
-#     edit_comment.comment = form.data['comment']
+  if form.validate_on_submit():
+  
+    edit_comment.comment = form.data['comment']
 
+    print("edit_comment:::::", edit_comment)
+    db.session.commit()
 
-#     db.session.commit()
+    return edit_comment.to_dict()
+  else:
+    return{'errors': validation_errors_to_error_messages(form.errors)}
 
-#     return edit_comment.to_dict()
-#   else:
-#     return{'errors': validation_errors_to_error_messages(form.errors)}
+# Delete a comment
+@comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])
+def delete_comment(id):
+  delete_comment = Comment.query.get(id)
 
-# # Delete a comment
-# @comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])
-# def delete_comment(id):
-#   delete_comment = Comment.query.get(id)
+  db.session.delete(delete_comment)
+  db.session.commit()
 
-#   db.session.delete(delete_comment)
-#   db.session.commit()
-
-#   return {id: delete_comment.id}
+  return {id: delete_comment.id}
     

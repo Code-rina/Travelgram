@@ -7,6 +7,8 @@ import { deleteOnePostThunk } from '../../store/post';
 import EditPostModal from '../EditPost/index';
 import GetAllComments from '../GetAllComments/GetAllComments';
 import AddCommentModal from '../CreateComment/index';
+import EditCommentModal from '../EditComment/index';
+// import { deleteOneCommentThunk } from '../../store/comment';
 
 import './SinglePost.css';
 
@@ -16,11 +18,22 @@ function SinglePost({post_id}){
     const history = useHistory()
     const user = useSelector((state) => state.session.user);
     const { id } = useParams()
+    // postId above
+    console.log("id::::::", id)
     const post = useSelector((state) => state?.post[id])
+    console.log("post::::::", post)
+    // TO DO: clean up code - multiple variables do tha same thing!!!
     const sessionUser = useSelector((state) => state.session?.user)
-    // console.log("sessionUser:::::::", sessionUser)
+    console.log("sessionUser:::::::", sessionUser)
     const onePost = useSelector((state) => state.post[id])
-    // console.log("onePost:::::", onePost)
+    // const usersComment = useSelector((state) => state.comment?.comments) 
+    // console.log("usersComment:::::", usersComment)
+    console.log("post_id::::::", post_id)
+
+    const usersComment = useSelector((state) => state.comment?.coments?.user_id)
+    // console.log("usersComment::::::", usersComment)
+
+    // const comment = useSelector((state) => state.comment?.coments)
 
     useEffect(() => {
         dispatch(getOnePostThunk(id))
@@ -38,7 +51,10 @@ function SinglePost({post_id}){
         e.preventDefault();
         await dispatch(deleteOnePostThunk(post?.id))
         history.push('/')
+        
     }
+
+    
 
     return (
         <div className="singlepost-main-container">
@@ -49,7 +65,7 @@ function SinglePost({post_id}){
                         <EditPostModal />
                     </div>
                 : null}
-                {(sessionUser?.id === onePost?.user_id) ? 
+                {(sessionUser?.id === usersComment) ? 
                     <div>
                         <button className='delete-post-button' onClick={handleDeletePost}>Delete</button>
                     </div>
@@ -66,7 +82,9 @@ function SinglePost({post_id}){
             <div className="post-description">{post?.caption}</div>
             <div>
                 <AddCommentModal id={post.id} />
+                
                 <GetAllComments id={post.id} />
+
             </div>
     </div>
     )
