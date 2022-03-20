@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { getAllPostsThunk } from '../../store/post'
+// import GetAllComments from '../GetAllComments/GetAllComments'
 
 
 
@@ -47,6 +48,7 @@ function AllPosts(){
                                     "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg"    
                                     }
                                 />
+                                {/* <GetAllComments id={post.id} /> */}
                         </Link>
                     <div className='post-caption'>{post?.caption}</div>
                 </div>

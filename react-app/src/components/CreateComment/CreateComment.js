@@ -29,7 +29,7 @@ function AddCommentForm({ closeModal, id }) {
       postId: id,
       comment,
     };
-    console.log("#########", payload)
+    // console.log("#########", payload)
     const newComment = dispatch(addOneCommentThunk(payload));
     if (newComment) {
       // history.push(`/`);
@@ -49,7 +49,7 @@ function AddCommentForm({ closeModal, id }) {
   return (
     <div className="add-comment-main-container">
       <div className="add-comment-sub-container">
-        <h3>Create a new post</h3>
+        <h3>Create a new comment</h3>
         <form className="add-comment-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, index) => (

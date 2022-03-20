@@ -24,7 +24,7 @@ function EditPostForm({ closeModal }) {
         id: id,
         caption,
     };
-    console.log("payload::::::", payload)
+    // console.log("payload::::::", payload)
     const editedPost = await dispatch(editOnePostThunk(payload));
     if (editedPost) {
       history.push(`/`);
