@@ -66,13 +66,13 @@ def edit_comment(id):
   else:
     return{'errors': validation_errors_to_error_messages(form.errors)}
 
-# # Delete a comment
-# @comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])
-# def delete_comment(id):
-#   delete_comment = Comment.query.get(id)
+# Delete a comment
+@comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])
+def delete_comment(id):
+  delete_comment = Comment.query.get(id)
 
-#   db.session.delete(delete_comment)
-#   db.session.commit()
+  db.session.delete(delete_comment)
+  db.session.commit()
 
-#   return {id: delete_comment.id}
+  return {id: delete_comment.id}
     

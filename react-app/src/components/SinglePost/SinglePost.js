@@ -7,12 +7,13 @@ import { deleteOnePostThunk } from '../../store/post';
 import EditPostModal from '../EditPost/index';
 import GetAllComments from '../GetAllComments/GetAllComments';
 import AddCommentModal from '../CreateComment/index';
-import EditCommentModal from '../EditComment/index'
+import EditCommentModal from '../EditComment/index';
+// import { deleteOneCommentThunk } from '../../store/comment';
 
 import './SinglePost.css';
 
 
-function SinglePost({post_id, comment}){
+function SinglePost({post_id}){
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector((state) => state.session.user);
@@ -30,7 +31,9 @@ function SinglePost({post_id, comment}){
     console.log("post_id::::::", post_id)
 
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
-    console.log("usersComment::::::", usersComment)
+    // console.log("usersComment::::::", usersComment)
+
+    // const comment = useSelector((state) => state.comment?.coments)
 
     useEffect(() => {
         dispatch(getOnePostThunk(id))
@@ -50,6 +53,8 @@ function SinglePost({post_id, comment}){
         history.push('/')
         
     }
+
+    
 
     return (
         <div className="singlepost-main-container">

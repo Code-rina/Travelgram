@@ -13,8 +13,11 @@ function EditCommentForm({ closeModal, comment}) {
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const {id} = useParams();
+    // console.log("id:::::", id)
     const post = useSelector((state) => state?.post[id])
     const [comments, setComments] = useState(comment?.comments.id);
+    // const commentId = useSelector((state) => state.comment?.comments?.id)
+    console.log("commentId", id)
     // console.log("comments:::::::", comments)
   
 //   console.log("comment::::", comment)
@@ -22,10 +25,10 @@ function EditCommentForm({ closeModal, comment}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-        id: id,
+        id,
         comment: comments,
     };
-    console.log("comment::::", comment)
+    // console.log("comment::::", comment)
     // console.log("payload::::::", payload)
     const editedComment = await dispatch(editOneCommentThunk(payload));
     if (editedComment) {
