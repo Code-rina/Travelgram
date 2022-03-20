@@ -39,32 +39,33 @@ const LoginForm = () => {
         <img className="home-logo-img" src="https://thecybersafetylady.com.au/wp-content/uploads/2018/10/Screen-Shot-2018-10-05-at-2.09.37-pm-600x900.png" alt="ig_phone_pic_logo"/>
       </div>
       <div className="home-login-container">
+        <div className="logo-login-form">Travelgram</div>
         <form onSubmit={onLogin}>
-          <div>
+          <div className="errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
+          <div className="home-email-password-div">
             <label htmlFor='email'>Email</label>
             <input
               name='email'
               type='text'
-              placeholder='Email'
+              placeholder='Your email here...'
               value={email}
               onChange={updateEmail}
             />
-          </div>
-          <div>
             <label htmlFor='password'>Password</label>
             <input
-              name='password'
+              name='password'git
               type='password'
-              placeholder='Password'
+              placeholder='Your password here...'
               value={password}
               onChange={updatePassword}
             />
-            <button type='submit'>Log in</button>
+            <div className="login-button-div">
+            <button className="login-button"type='submit'>Log in</button>
+            </div>
           </div>
         </form>
         <div className="home-demo-div">

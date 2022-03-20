@@ -1,6 +1,30 @@
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Style Script', cursive; 
+font-family: 'Cookie', cursive;
+*/
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.errors {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+    color: #d93b30;
+    margin-bottom: 3px;
+}
+
 .home-main-container {
     display: flex;
     background-color: rgb(250, 250, 250)
+}
+form {
+    /* display: flex; */
+    /* flex-direction: column; */
+    height: 100%;
+    width: 100%; 
 }
 
 .home-logo-div {
@@ -13,8 +37,58 @@
 }
 
 .home-login-container {
-    margin-left: 30%;
+    margin-top: 15%;
+    margin-left: 15%;
+    width: 360px;
+    height: 360px;
     box-sizing: border-box;
-    border: 1px grey solid;
+    border: 1px solid rgb(214,214,214);
     background-color: rgb(255, 255, 255)
 }
+
+.logo-login-form {
+    font-family: 'Cookie', cursive;
+    font-size: 60px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 20%;
+    color: rgb(34,34,34)
+}
+
+.home-email-password-div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.login-button-div {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.login-button {
+    /* make button padding more wider  */
+    line-height: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    background-color: rgb(0, 138, 240);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
