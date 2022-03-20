@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Home from './components/Home/Home'
 import AllPosts from './components/AllPosts/AllPosts'
 import SinglePost from './components/SinglePost/SinglePost'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +55,7 @@ function App() {
           <Home />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </>
     // </BrowserRouter>
   );

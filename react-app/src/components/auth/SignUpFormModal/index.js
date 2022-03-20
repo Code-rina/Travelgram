@@ -9,7 +9,7 @@ function SignUpFormModal() {
 
     return (
       <div>
-        <button className='sign-up-button' onClick={() => setShowModal(true)}>Sign Up</button>
+        <button className='home-sign-up-button' onClick={() => setShowModal(true)}>Sign up</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <SignUpForm className='sign-up-modal'/>
