@@ -50,7 +50,7 @@ form {
     font-family: 'Cookie', cursive;
     font-size: 60px;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     margin-left: 20%;
     color: rgb(34,34,34)
 }
@@ -62,6 +62,23 @@ form {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+}
+
+.home-form-label {
+    margin-top: 20px;
+}
+
+.home-form-input {
+    box-sizing: border-box;
+    border: 1px solid rgb(214,214,214);
+    border-radius: 4px;
+    width: 50%;
+    height: 25px;
+}
+
+.home-form-input::placeholder {
+    font-size: 12px;
+    color: rgb(200,200,200);
 }
 
 .login-button-div {
@@ -90,5 +107,46 @@ form {
     color: white;
     border: 1px solid white;
     border-radius: 4px;
+}
+
+.home-demo-div {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.home-demo-button {
+    line-height: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    background-color: rgb(180,180,180);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.home-dont-have-an-acct-txt {
+    font-size: 14px;
+    color: rgb(34,34,34);
+    display: flex;
+    flex-direction: row;
+}
+
+.home-sign-up-button {
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    flex-direction: row;
 }
 

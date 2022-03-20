@@ -11,7 +11,7 @@ def image_valid(form, field):
 
 
 class AddPostForm(FlaskForm):
-    caption = TextAreaField('caption', Length(max=2200))
+    caption = TextAreaField('caption', Length(max=500, message="Maximum amount of characters for caption is 500."))
     
     image_url = StringField('image_url', validators=[
                            DataRequired(message='Please provide an Image URL.'), image_valid])

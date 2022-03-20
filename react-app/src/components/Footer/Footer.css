@@ -1,0 +1,65 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-main-conteiner {
+    /* why doesn't footer stick? */
+    bottom: 0;
+    z-index: 100;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:fixed;
+    width: 100%;
+}
+
+.footer-languages {
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+
+.languages {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(131,131,131);
+    text-decoration: none;
+}
+
+.footer-developedby {
+    color: rgb(131,131,131);
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.footer-developedby-txt {
+    color: rgb(131,131,131);
+    padding-right: 3px;
+    margin-right: 10px;
+}
+
+.footer-name {
+    color: rgb(131,131,131);
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.footer-linkedin-icon,
+.footer-github-icon {
+    /* figure out why the icon color not changing to grey */
+    color: rgb(131,131,131);
+    font-size: 30px;
+    transform: translate(-35%);
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 10px;
+}

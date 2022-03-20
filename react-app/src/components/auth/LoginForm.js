@@ -47,17 +47,19 @@ const LoginForm = () => {
             ))}
           </div>
           <div className="home-email-password-div">
-            <label htmlFor='email'>Email</label>
-            <input
+            <label className="home-form-label" 
+            htmlFor='email'>Email</label>
+            <input className="home-form-input"
               name='email'
               type='text'
               placeholder='Your email here...'
               value={email}
               onChange={updateEmail}
             />
-            <label htmlFor='password'>Password</label>
-            <input
-              name='password'git
+            <label className="home-form-label" 
+            htmlFor='password'>Password</label>
+            <input className="home-form-input"
+              name='password'
               type='password'
               placeholder='Your password here...'
               value={password}
@@ -66,17 +68,17 @@ const LoginForm = () => {
             <div className="login-button-div">
             <button className="login-button"type='submit'>Log in</button>
             </div>
+            <div className="home-demo-div">
+                <DemoUser />
+            </div>
+            <div className="home-signup-from-login">
+              <h3 className="home-dont-have-an-acct-txt">Don't have an account?</h3>
+                  <div className="home-signup-from-login-button">
+                    <SignUpFormModal />
+                  </div>
+            </div>
           </div>
         </form>
-        <div className="home-demo-div">
-          <DemoUser />
-        </div>
-        <div className="home-signup-from-login">
-          <h3>Don't have an account?</h3>
-              <div className="home-signup-from-login-button">
-                <SignUpFormModal />
-              </div>
-        </div>
       </div>
     </div>
   );

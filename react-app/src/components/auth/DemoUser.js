@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import './LoginPage.css'
 // import "./navbar.css";
 
 const DemoButton = () => {
@@ -22,7 +23,7 @@ const DemoButton = () => {
   }
 
   return (
-    <button id="demo-button" onClick={handleDemo}>
+    <button className="home-demo-button" onClick={handleDemo}>
       Demo
     </button>
   );
