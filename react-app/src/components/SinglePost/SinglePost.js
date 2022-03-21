@@ -19,19 +19,19 @@ function SinglePost({post_id}){
     const user = useSelector((state) => state.session.user);
     const { id } = useParams()
     // postId above
-    console.log("id::::::", id)
+    // console.log("id::::::", id)
     const post = useSelector((state) => state?.post[id])
-    console.log("post::::::", post)
+    // console.log("post::::::", post)
     // TO DO: clean up code - multiple variables do tha same thing!!!
     const sessionUser = useSelector((state) => state.session?.user)
-    console.log("sessionUser:::::::", sessionUser)
+    // console.log("sessionUser:::::::", sessionUser)
     const onePost = useSelector((state) => state.post[id])
     // const usersComment = useSelector((state) => state.comment?.comments) 
     // console.log("usersComment:::::", usersComment)
-    console.log("post_id::::::", post_id)
+    // console.log("post_id::::::", post_id)
 
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
-    console.log("usersComment::::::", usersComment)
+    // console.log("usersComment::::::", usersComment)
 
     // const comment = useSelector((state) => state.comment?.coments)
 
