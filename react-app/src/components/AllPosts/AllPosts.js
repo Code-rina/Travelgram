@@ -22,7 +22,7 @@ function AllPosts(){
     // const { id } = useParams()
 
    const allPostsArray = Object.values(allPosts)
-//    console.log("allPostsArray::::::", allPostsArray)
+   console.log("allPostsArray::::::", allPostsArray)
 
    
 
@@ -33,7 +33,7 @@ function AllPosts(){
     if (!user) {
         history.push(`/login`)
     }
-
+ // https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg
     return (
         <div className="posts-feed-container">
             {allPostsArray?.sort((a,b)=> (a.id < b.id ? 1 : -1)).map((post) => ( 
@@ -45,7 +45,7 @@ function AllPosts(){
                                     src={
                                     post?.image_url ? 
                                     post?.image_url : 
-                                    "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg"    
+                                    "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg"    
                                     }
                                 />
                                 {/* <GetAllComments id={post.id} /> */}

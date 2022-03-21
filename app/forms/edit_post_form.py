@@ -5,5 +5,5 @@ from app.models import Post
 
 
 class EditPostForm(FlaskForm):
-    caption = TextAreaField('caption', Length(max=500, message="Maximum amount of characters for caption is 500."))
+    caption = TextAreaField('caption',validators=[Length(max=500, message='Caption has to have maximum of 500 characters.')])
     submit = SubmitField('submit')

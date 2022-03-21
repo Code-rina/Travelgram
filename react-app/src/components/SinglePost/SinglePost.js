@@ -31,7 +31,7 @@ function SinglePost({post_id}){
     console.log("post_id::::::", post_id)
 
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
-    // console.log("usersComment::::::", usersComment)
+    console.log("usersComment::::::", usersComment)
 
     // const comment = useSelector((state) => state.comment?.coments)
 
@@ -65,7 +65,7 @@ function SinglePost({post_id}){
                         <EditPostModal />
                     </div>
                 : null}
-                {(sessionUser?.id === usersComment) ? 
+                {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
                         <button className='delete-post-button' onClick={handleDeletePost}>Delete</button>
                     </div>

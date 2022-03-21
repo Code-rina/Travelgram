@@ -75,6 +75,7 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
             caption
         }),
     })
+    console.log("response:::", response)
     if (response.ok) {
         const data = await response.json();
         dispatch(addOnePostAction(data))

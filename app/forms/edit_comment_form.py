@@ -5,5 +5,5 @@ from app.models import Comment
 
 
 class EditCommentForm(FlaskForm):
-    comment = TextAreaField('comment', Length(max=500, message="Maximum amount of characters for caption is 500."))
+    comment = TextAreaField('comment', validators=[Length(max=500, message='Please provide a comment.')])
     submit = SubmitField('submit')

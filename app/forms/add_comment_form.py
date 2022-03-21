@@ -8,5 +8,5 @@ from app.models import Comment
 class AddCommentForm(FlaskForm):
     user_id = IntegerField('user_id')
     post_id = IntegerField('post_id')
-    comment = TextAreaField('comment', Length(max=500, message="Maximum amount of characters for comment is 500."), validators=[DataRequired('Please provide a comment.')])
+    comment = TextAreaField('comment', validators=[DataRequired('Please provide a comment.'), Length(max=500, message="Maximum amount of characters for comment is 500.")])
     submit = SubmitField('submit')
