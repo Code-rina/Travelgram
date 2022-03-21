@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { unstable_batchedUpdates } from 'react-dom';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import AddPostModal from '../CreatePost/index'
 import './NavBar.css'
@@ -16,25 +17,27 @@ const NavBar = () => {
     <nav className="navbar-main-container">
       <div>
       {sessionUser && 
-        <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+        <div className="nav-logo-div">
+          <NavLink className="nav-logo" to='/' exact={true} activeClassName='active'>
+            Travelgram
           </NavLink>
         </div>}
+        <ul className="nav-right-container">
         {sessionUser && 
-        <div>
-          <NavLink to='/users' exact={true} activeClassName='active'>
+        <li className="nav-user-div">
+          <NavLink className="nav-user" to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </div>}
+        </li>}
         {sessionUser && 
-        <div>
+        <li>
           <AddPostModal />
-        </div>}
+        </li>}
         {sessionUser && 
-        <div>
+        <li>
           <LogoutButton />
-        </div>}
+        </li>}
+        </ul>
       </div>
     </nav>
   );
