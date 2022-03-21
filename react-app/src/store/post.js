@@ -140,7 +140,8 @@ const postReducer = (state = initialState, action) => {
         }  
         case DELETE_POST: {
             newState = {...state};
-            delete newState[action.post]
+            delete newState.posts[action.post]
+            // console.log("newState:::::", newState.posts[action.post])
             return newState;
         }
 

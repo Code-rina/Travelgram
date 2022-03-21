@@ -45,6 +45,10 @@ function AddPostForm({ closeModal }) {
   //   setErrors(errors)
   // }, [imageUrl, caption])
   
+  const imageValidator = (url) => {
+    return /\.(png|jpeg|jpg)$/.test(url)
+  }
+
   return (
     <div className="add-post-main-container">
       <div className="add-post-sub-container">
@@ -57,7 +61,7 @@ function AddPostForm({ closeModal }) {
           </ul>
           <div className="add-post-div-container">
               {/* <h4>Uploaded picture preview...</h4> */}
-        {imageUrl && (
+        {imageValidator(imageUrl) ?
           <img
             alt='post_preview'
             src={imageUrl}
@@ -69,7 +73,9 @@ function AddPostForm({ closeModal }) {
                 "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
             }
           />
-        )}
+        :
+        <img src={"https://i.pinimg.com/564x/a2/3b/ba/a23bba7866bcb9f862b484fbb02fac5c.jpg"} alt="default_img"></img>
+        }
         <div>
           <label> Image </label>
           <input
