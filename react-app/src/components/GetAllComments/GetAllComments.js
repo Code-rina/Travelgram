@@ -58,7 +58,7 @@ let filteredCommentsArray = allCommentsArray.filter((oneComment) => {
                     <div>{oneComment.comment}</div>
                         <div>
                         {(sessionUser?.id === oneComment?.user_id) ?
-                            <EditCommentModal id={id} comment={comment} />
+                            <EditCommentModal id={id} comment={comment} oneComment={oneComment} />
                        : null }
                        {(sessionUser?.id === oneComment?.user_id) ? 
                         <div>

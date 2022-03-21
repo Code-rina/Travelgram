@@ -14,9 +14,9 @@ function EditPostForm({ closeModal }) {
     const [errors, setErrors] = useState([]);
     const {id} = useParams();
     const post = useSelector((state) => state?.post[id])
-    const [caption, setCaption] = useState(post?.description);
+    const [caption, setCaption] = useState(post?.caption);
   
-  
+    // console.log("caption::::", caption)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ function EditPostForm({ closeModal }) {
           <textarea
             id="edit-post-label-caption"
             placeholder="Caption"
-            // autoComplete="on"
+            autoComplete="off"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
           />

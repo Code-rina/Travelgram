@@ -26,7 +26,9 @@ function AddPostForm({ closeModal }) {
       imageUrl,
       caption,
     };
+    console.log("payload:::::", payload)
     const newPost = await dispatch(addOnePostThunk(payload));
+    console.log("newPost::::", newPost)
     if (newPost) {
       history.push(`/`);
       closeModal(false);
@@ -64,7 +66,7 @@ function AddPostForm({ closeModal }) {
             // required
             onError={(e) =>
               (e.target.src =
-                "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
+                "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
             }
           />
         )}

@@ -21,6 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 # Getting all posts
 @post_routes.route('/')
+@login_required
 def get_all_posts():
   posts = Post.query.all()
 
@@ -29,6 +30,7 @@ def get_all_posts():
 
 # Getting one post
 @post_routes.route('/<int:id>')
+@login_required
 def get_one_post(id):
   post = Post.query.get(id)
   
@@ -37,6 +39,7 @@ def get_one_post(id):
 
 # Creating a post
 @post_routes.route('/addpost', methods=["POST"])
+@login_required
 def create_post():
   data = request.json
   form = AddPostForm()
@@ -56,6 +59,7 @@ def create_post():
 
 # Edit a post
 @post_routes.route('/editpost/<int:id>', methods=["PUT"])
+@login_required
 def edit_post(id):
 
   form = EditPostForm()
@@ -76,6 +80,7 @@ def edit_post(id):
 
 # Delete a post
 @post_routes.route('/deletepost/<int:id>', methods=["DELETE"])
+@login_required
 def delete_post(id):
   delete_post = Post.query.get(id)
 

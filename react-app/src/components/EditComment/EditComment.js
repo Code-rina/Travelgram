@@ -6,7 +6,7 @@ import { editOneCommentThunk } from "../../store/comment";
 
 
 
-function EditCommentForm({ closeModal, comment}) {
+function EditCommentForm({ closeModal, comment, oneComment}) {
     const dispatch = useDispatch();
  
     // const sessionUser = useSelector((state) => state?.session?.user);
@@ -15,17 +15,17 @@ function EditCommentForm({ closeModal, comment}) {
     const {id} = useParams();
     // console.log("id:::::", id)
     const post = useSelector((state) => state?.post[id])
-    const [comments, setComments] = useState(comment?.comments.id);
+    const [comments, setComments] = useState(oneComment?.comment);
     // const commentId = useSelector((state) => state.comment?.comments?.id)
-    console.log("commentId", id)
-    // console.log("comments:::::::", comments)
+    // console.log("commentId", id)
+    // console.log("commenttttt:::::::", comments)
   
 //   console.log("comment::::", comment)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-        id,
+        id: oneComment?.id,
         comment: comments,
     };
     // console.log("comment::::", comment)
