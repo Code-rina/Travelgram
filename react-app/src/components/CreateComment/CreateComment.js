@@ -36,6 +36,9 @@ function AddCommentForm({ closeModal, id }) {
       closeModal(false);
     }
   }
+  if (!sessionUser) {
+    history.push(`/login`)
+  }
 
 //   useEffect(() => {
 //     const errors = []

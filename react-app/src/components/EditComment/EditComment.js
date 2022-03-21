@@ -47,7 +47,11 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
 //     if(comment?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
 //     setErrors(errors)
 //   }, [caption])
-  
+  // if (!user) {
+  //   history.push(`/login`)
+  // }  
+
+
   return (
     <div className="edit-comment-main-container">
       <div className="edit-comment-sub-container">

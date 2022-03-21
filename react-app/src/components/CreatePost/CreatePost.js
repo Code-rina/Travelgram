@@ -36,6 +36,10 @@ function AddPostForm({ closeModal }) {
     // window.location.reload(false)
   }
 
+  if (!sessionUser) {
+    history.push(`/login`)
+}
+
   // useEffect(() => {
   //   const errors = []
   //   if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
