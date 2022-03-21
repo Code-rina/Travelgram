@@ -57,8 +57,9 @@ function SinglePost({post_id}){
     
 
     return (
-        <div className="singlepost-main-container">
-          <p>{post.username}</p>
+        <div className="single-post-main-container">
+            <div className="single-post-sub-container">
+          <p className="single-post-username">{post.username}</p>
             <div className="edit-delete-icon">
                 {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
@@ -79,12 +80,13 @@ function SinglePost({post_id}){
                     "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
                 }
             />
-            <div className="post-description">{post?.caption}</div>
+            <div className="single-post-description">{post?.caption}</div>
             <div>
                 <AddCommentModal id={post.id} />
                 
                 <GetAllComments id={post.id} />
 
+            </div>
             </div>
     </div>
     )
