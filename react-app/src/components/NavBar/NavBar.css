@@ -17,33 +17,69 @@
 }
 
 .nav-logo-div {
-    margin-top: 1%;
+    /* margin-top: 3%; */
     /* margin-bottom: 1%; */
     margin-left: 3%;
     padding-right: 60%;
-    cursor: pointer;
+    /* cursor: pointer; */
     float: left;
-    /* display: flex;
-    flex-direction: row; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
     width: 70%;
+    list-style-type: none;
+    border-bottom: none;
+    text-decoration: none;
 }
 
 .nav-logo {
     font-family: 'Cookie', cursive;
     font-size: 40px;
+    cursor: pointer;
     text-decoration: none;
     color: rgb(34,34,34);
+    padding-right: 1050px;
 }
 
-.nav-right-container {
-    display: inline;
-    flex-direction: row;
+.nav-li {
+    text-decoration: none;
+    /* cursor: pointer; */
     float: right;
-    padding-left: 80%;
-    margin-left: 200px;
+    padding-left: 35px;
+    padding-top: 8px;
+    border-bottom: none;
 }
 
 .nav-user {
+    border-bottom: none;
     text-decoration: none;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+.add-post-button {
+    background-color: rgb(230,230,230);
+    border: 0.1px solid white;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    /* margin-left: 20px; */
+}
+
+.logout-button {
+    background-color: rgb(230,230,230);
+    border: 0.1px solid white;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    /* margin-left: 20px; */
+
 }

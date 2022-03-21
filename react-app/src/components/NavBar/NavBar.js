@@ -17,27 +17,22 @@ const NavBar = () => {
     <nav className="navbar-main-container">
       <div>
       {sessionUser && 
-        <div className="nav-logo-div">
+        <ul className="nav-logo-div">
           <NavLink className="nav-logo" to='/' exact={true} activeClassName='active'>
             Travelgram
           </NavLink>
-        </div>}
-        <ul className="nav-right-container">
-        {sessionUser && 
-        <li className="nav-user-div">
+        <li className="nav-li">
           <NavLink className="nav-user" to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>}
-        {sessionUser && 
-        <li>
+        </li>
+        <li className="nav-li">
           <AddPostModal />
-        </li>}
-        {sessionUser && 
-        <li>
+        </li>
+        <li className="nav-li">
           <LogoutButton />
-        </li>}
-        </ul>
+        </li>
+        </ul>}
       </div>
     </nav>
   );

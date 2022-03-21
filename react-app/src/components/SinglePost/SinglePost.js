@@ -19,19 +19,19 @@ function SinglePost({post_id}){
     const user = useSelector((state) => state.session.user);
     const { id } = useParams()
     // postId above
-    console.log("id::::::", id)
+    // console.log("id::::::", id)
     const post = useSelector((state) => state?.post[id])
-    console.log("post::::::", post)
+    // console.log("post::::::", post)
     // TO DO: clean up code - multiple variables do tha same thing!!!
     const sessionUser = useSelector((state) => state.session?.user)
-    console.log("sessionUser:::::::", sessionUser)
+    // console.log("sessionUser:::::::", sessionUser)
     const onePost = useSelector((state) => state.post[id])
     // const usersComment = useSelector((state) => state.comment?.comments) 
     // console.log("usersComment:::::", usersComment)
-    console.log("post_id::::::", post_id)
+    // console.log("post_id::::::", post_id)
 
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
-    console.log("usersComment::::::", usersComment)
+    // console.log("usersComment::::::", usersComment)
 
     // const comment = useSelector((state) => state.comment?.coments)
 
@@ -57,8 +57,9 @@ function SinglePost({post_id}){
     
 
     return (
-        <div className="singlepost-main-container">
-          <p>{post.username}</p>
+        <div className="single-post-main-container">
+            <div className="single-post-sub-container">
+          <p className="single-post-username">{post.username}</p>
             <div className="edit-delete-icon">
                 {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
@@ -79,12 +80,13 @@ function SinglePost({post_id}){
                     "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
                 }
             />
-            <div className="post-description">{post?.caption}</div>
+            <div className="single-post-description">{post?.caption}</div>
             <div>
                 <AddCommentModal id={post.id} />
                 
                 <GetAllComments id={post.id} />
 
+            </div>
             </div>
     </div>
     )

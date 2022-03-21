@@ -22,7 +22,7 @@ function AllPosts(){
     // const { id } = useParams()
 
    const allPostsArray = Object.values(allPosts)
-   console.log("allPostsArray::::::", allPostsArray)
+//    console.log("allPostsArray::::::", allPostsArray)
 
    
 
@@ -35,11 +35,11 @@ function AllPosts(){
     }
  // https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg
     return (
-        <div className="posts-feed-container">
+        <div className="posts-main-container">
             {allPostsArray?.sort((a,b)=> (a.id < b.id ? 1 : -1)).map((post) => ( 
                 <div className="posts-all-container">
-                    <div className="posts-user">{post?.username}</div>
-                        <Link id="single-post-link" to={`/posts/${post?.id}`}>
+                    <Link id="single-post-link" to={`/posts/${post?.id}`}>
+                        <div className="posts-user">{post?.username}</div>
                                 <img className='posts-feed-image'
                                     alt={post?.id}
                                     src={
@@ -49,8 +49,9 @@ function AllPosts(){
                                     }
                                 />
                                 {/* <GetAllComments id={post.id} /> */}
-                        </Link>
-                    <div className='post-caption'>{post?.caption}</div>
+                        
+                        <div className='post-caption'>{post?.caption}</div>
+                    </Link>
                 </div>
             ))}
         </div>
