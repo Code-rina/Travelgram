@@ -68,7 +68,7 @@ function SinglePost({post_id}){
                 : null}
                 {(sessionUser?.id === onePost?.user_id) ? 
                     <div>
-                        <button className='delete-post-button' onClick={handleDeletePost}>Delete</button>
+                        <button className='delete-post-button' onClick={handleDeletePost}>Delete Post</button>
                     </div>
                 : null}
             </div>
