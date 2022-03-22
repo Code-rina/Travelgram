@@ -131,7 +131,7 @@ const initialState = { posts: {} }
 const postReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_POSTS: {
+        case LOAD_POSTS: { 
             newState = {...state};
             newState.posts = action.posts
             return newState;
@@ -143,13 +143,15 @@ const postReducer = (state = initialState, action) => {
         }
         case ADD_POST: {
             newState = {...state};
-            newState.posts = {...state.posts, [action.post.id]: action.post}
+            newState[action.post.id] = action.post
+            // newState.posts = {...state.posts, [action.post.id]: action.post}
             // console.log("newState::::::", newState)
             return newState;
         }
         case EDIT_POST: {
             newState = {...state};
-            newState.posts = {...state.posts, [action.post.id]: action.post}
+            newState[action.post.id] = action.post
+            // console.log("this is newState:::::", newState)
             // console.log("newState::::::", newState)
             return newState;
         }  
