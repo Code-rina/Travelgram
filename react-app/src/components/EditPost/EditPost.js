@@ -41,7 +41,7 @@ function EditPostForm({ closeModal }) {
         setErrors(data.errors)
       } else {
         closeModal(false)
-        history.push(`/posts/${id}`)
+        // history.push(`/posts/${id}`)
       }
     }
   }

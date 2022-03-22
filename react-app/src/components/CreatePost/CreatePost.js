@@ -40,7 +40,7 @@ function AddPostForm({ closeModal }) {
         setErrors(data.errors)
       } else {
         closeModal(false)
-        history.push('/')
+        // history.push('/posts/')
       }
     }
   }
