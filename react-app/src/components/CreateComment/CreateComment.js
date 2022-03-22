@@ -38,7 +38,7 @@ function AddCommentForm({ closeModal, id }) {
         setErrors(data.errors)
       } else {
         closeModal(false)
-        history.push('/')
+        history.push(`/posts/${id}`)
       }
     }
   }
