@@ -89,48 +89,48 @@ const SignUpForm = () => {
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
-              <label htmlFor='fullname'>Full name</label>
+          <div className="signup-label-input-div">
+              <label className="signup-labels" htmlFor='fullname'>Full name</label>
               <input
                 className='form-input-field'
                 type='text'
-                placeholder='Full name'
+                placeholder='Your full name here...'
                 name='fullname'
                 onChange={updateFullname}
                 value={fullname}
               />
-              <label htmlFor='username'>Username</label>
+              <label className="signup-labels" htmlFor='username'>Username</label>
               <input
               type='text'
               className='form-input-field'
-              placeholder='Username'
+              placeholder='Your username here...'
               name='username'
               onChange={updateUsername}
               value={username}
               />
-              <label htmlFor='email'>Email</label>
+              <label className="signup-labels" htmlFor='email'>Email</label>
               <input
               type='text'
               className='form-input-field'
-              placeholder='Email'
+              placeholder='Your email here...'
               name='email'
               onChange={updateEmail}
               value={email}
               />
-              <label htmlFor='password'>Password</label>
+              <label className="signup-labels" htmlFor='password'>Password</label>
               <input
               type='password'
               className='form-input-field'
-              placeholder='Password'
+              placeholder='Your password here...'
               name='password'
               onChange={updatePassword}
               value={password}
               />
-              <label htmlFor='confirm_password'>Confirm Password</label>
+              <label className="signup-labels" htmlFor='confirm_password'>Confirm Password</label>
               <input
                 type='password'
                 className='form-input-field'
-                placeholder='Confirm password'
+                placeholder='Your confirmed password here...'
                 name='confirm_password'
                 onChange={updateConfirmPassword}
                 value={confirmPassword}
@@ -147,7 +147,7 @@ const SignUpForm = () => {
               /> */}
           </div>
           <div>
-            <button type='submit' className='signUp-button-form'>Submit</button>
+            <button type='submit' className='signup-button-form'>Submit</button>
           </div>
         </form>
         <div className='demo-user-button'>

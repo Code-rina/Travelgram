@@ -44,7 +44,7 @@ def create_new_comment():
 
     return add_comment.to_dict()   
   else:
-    return{'errors': validation_errors_to_error_messages(form.errors)}
+    return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Edit a comment
 @comment_routes.route('/editcomment/<int:id>', methods=["PUT"])
@@ -64,7 +64,7 @@ def edit_comment(id):
 
     return edit_comment.to_dict()
   else:
-    return{'errors': validation_errors_to_error_messages(form.errors)}
+    return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Delete a comment
 @comment_routes.route('/deletecomment/<int:id>', methods=["DELETE"])

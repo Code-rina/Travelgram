@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editOnePostThunk, getOnePostThunk } from "../../store/post";
+import { editOnePostAction, editOnePostThunk, getOnePostThunk } from "../../store/post";
+import './EditPost.css'
 
 
 
@@ -20,18 +21,31 @@ function EditPostForm({ closeModal }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let data;
     const payload = {
         id: id,
         caption,
     };
     // console.log("payload::::::", payload)
-    const editedPost = await dispatch(editOnePostThunk(payload));
-    if (editedPost) {
-      history.push(`/`);
-      closeModal(false);
+
+    // const editedPost = await dispatch(editOnePostThunk(payload));
+    // if (editedPost) {
+    //   history.push(`/`);
+    //   closeModal(false);
+    // }
+    data = await dispatch(editOnePostThunk(payload));
+    // console.log("result::::", data)
+    
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        history.push(`/posts/${id}`)
+      }
     }
   }
-
+  
   useEffect(() => {
     dispatch(getOnePostThunk(id))
     if(caption) localStorage.setItem("caption", post?.id)
@@ -39,7 +53,7 @@ function EditPostForm({ closeModal }) {
 
   useEffect(() => {
     const errors = []
-    if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
+    if(caption?.length > 500) errors.push("Caption text must be less than 2,200 characters.")
     setErrors(errors)
   }, [caption])
   

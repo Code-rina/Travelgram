@@ -19,37 +19,52 @@ function AddCommentForm({ closeModal, id }) {
     const [comment, setComment] = useState('');
     const [userId, setUserId] = useState('')
     // const [postId, setPostId] = useState('')
+  
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let data;
     const payload = {
       userId: sessionUser.id,
       postId: id,
       comment,
     };
     // console.log("#########", payload)
-    const newComment = dispatch(addOneCommentThunk(payload));
-    if (newComment) {
-      // history.push(`/`);
-      closeModal(false);
+    data = await dispatch(addOneCommentThunk(payload));
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        // history.push(`/posts/${id}`)
+      }
     }
   }
+  //   if (newComment) {
+  //     // history.push(`/`);
+  //     setComment('')
+  //     closeModal(false);
+  //   }
+  // }
+  if (!sessionUser) {
+    history.push(`/login`)
+  }
 
-//   useEffect(() => {
-//     const errors = []
-//     if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
-//     if(imageUrl?.length > 255) errors.push("Valid Image Url has to be less than 255 characters.")
-//     // if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
-//     if(!imageUrl?.includes("http" || "https")) errors.push("Valid Image Url has to start with 'http' or 'https'.")
-//     setErrors(errors)
-//   }, [imageUrl, caption])
+  // useEffect(() => {
+  //   const errors = []
+  //   if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
+  //   if(imageUrl?.length > 255) errors.push("Valid Image Url has to be less than 255 characters.")
+  //   // if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
+  //   if(!imageUrl?.includes("http" || "https")) errors.push("Valid Image Url has to start with 'http' or 'https'.")
+  //   setErrors(errors)
+  // }, [imageUrl, caption])
   
   return (
     <div className="add-comment-main-container">
       <div className="add-comment-sub-container">
-        <h3>Create a new comment</h3>
+        <h3 className="add-comment-create-new-comment-text">Create a new comment</h3>
         <form className="add-comment-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, index) => (

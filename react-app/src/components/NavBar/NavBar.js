@@ -21,11 +21,11 @@ const NavBar = () => {
           <NavLink className="nav-logo" to='/' exact={true} activeClassName='active'>
             Travelgram
           </NavLink>
-        <li className="nav-li">
+        {/* <li className="nav-li">
           <NavLink className="nav-user" to='/users' exact={true} activeClassName='active'>
-            Users
+            User
           </NavLink>
-        </li>
+        </li> */}
         <li className="nav-li">
           <AddPostModal />
         </li>

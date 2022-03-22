@@ -77,7 +77,7 @@ function SinglePost({post_id}){
                 src={post?.image_url}
                 onError={(e) =>
                 (e.target.src =
-                    "https://orstx.org/wp-content/uploads/2019/10/no-photo-available-icon-12.jpg")
+                    "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
                 }
             />
             <div className="single-post-description">{post?.caption}</div>

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editOneCommentThunk } from "../../store/comment";
+import './EditComment.css'
 
 
 
@@ -23,6 +24,7 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
 //   console.log("comment::::", comment)
 
   const handleSubmit = async (e) => {
+    let data;
     e.preventDefault();
     const payload = {
         id: oneComment?.id,
@@ -30,10 +32,14 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
     };
     // console.log("comment::::", comment)
     // console.log("payload::::::", payload)
-    const editedComment = await dispatch(editOneCommentThunk(payload));
-    if (editedComment) {
-    //   history.push(`/`);
-      closeModal(false);
+    data = await dispatch(editOneCommentThunk(payload));
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        // history.push(`/posts/${id}`)
+      }
     }
   }
 
@@ -47,11 +53,15 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
 //     if(comment?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
 //     setErrors(errors)
 //   }, [caption])
-  
+  // if (!user) {
+  //   history.push(`/login`)
+  // }  
+
+
   return (
     <div className="edit-comment-main-container">
       <div className="edit-comment-sub-container">
-        <h3>Edit a comment</h3>
+        <h3 className="edit-comment-edit-comment-text">Edit a comment</h3>
         <form className="edit-comment-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, index) => (

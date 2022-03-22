@@ -13,18 +13,18 @@ function GetAllComments({id, comment}) {
     const history = useHistory()
    
     const allComments = useSelector((state) => state?.comment?.comments)
-    console.log("allComments:::::", allComments)
+    // console.log("allComments:::::", allComments)
     // console.log("allComments:::::::", allComments)
     const sessionUser = useSelector((state) => state.session?.user);
     // const [sessionId, setSessionId] = useState()
     // const postId = useSelector((state) => state.post[id])
      const allCommentsArray = Object.values(allComments)
-     console.log("allCommentsArray:::::::", allCommentsArray)
+    //  console.log("allCommentsArray:::::::", allCommentsArray)
     // const { id } = useParams()
 
     const post = useSelector((state) => state.post)
     const userComment = useSelector((state) => state.comment?.comments?.user_id)
-    console.log("comment::::::::", comment)
+    // console.log("comment::::::::", comment)
 
     useEffect(() => {
         dispatch(getAllCommentsThunk())

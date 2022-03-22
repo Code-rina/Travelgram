@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { addOnePostThunk } from "../../store/post";
+import { getAllPostsThunk, addOnePostThunk } from "../../store/post";
+
 
 
 
@@ -16,25 +17,51 @@ function AddPostForm({ closeModal }) {
     const [errors, setErrors] = useState([]);
     const [caption, setCaption] = useState('');
     const [imageUrl, setImageUrl] = useState('')
+    // const [validateErrors, setValidateErrors] = useState([])
 
   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let data;
     const payload = {
       userId: sessionUser.id,
       imageUrl,
       caption,
     };
-    console.log("payload:::::", payload)
-    const newPost = await dispatch(addOnePostThunk(payload));
-    console.log("newPost::::", newPost)
-    if (newPost) {
-      history.push(`/`);
-      closeModal(false);
+    // console.log("errors::::", errors)
+    // if (errors.length === 0) {
+    // console.log("payload:::::", payload)
+    data = await dispatch(addOnePostThunk(payload));
+    // console.log("result::::", data)
+    
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        history.push('/')
+      }
     }
-    // window.location.reload(false)
   }
+
+
+
+    // if (result && result.errors) {
+    //   setErrors(result.errors)
+    //   console.log("errors::::", errors)
+    // }
+  
+    // if (result) {
+    //   // await dispatch(getAllPostsThunk())
+    //   history.push(`/`);
+    //   closeModal(false);
+    // }
+    // window.location.reload(false)
+
+  if (!sessionUser) {
+    history.push(`/login`)
+}
 
   // useEffect(() => {
   //   const errors = []
@@ -45,21 +72,27 @@ function AddPostForm({ closeModal }) {
   //   setErrors(errors)
   // }, [imageUrl, caption])
   
+  const url = imageUrl[0]?.url
+
+  const imageValidator = (image) => {
+    return /\.(png|jpeg|jpg)$/.test(image)
+  }
+
   return (
     <div className="add-post-main-container">
       <div className="add-post-sub-container">
-        <h3>Create a new post</h3>
         <form className="add-post-form" onSubmit={handleSubmit}>
           <ul>
-            {errors.map((error, index) => (
+            {errors && errors.map((error, index) => (
               <li key={index}>{error}</li>
-            ))}
+              ))}
           </ul>
           <div className="add-post-div-container">
+              <h3 className="add-post-create-new-post-text">Create a new post</h3>
               {/* <h4>Uploaded picture preview...</h4> */}
-        {imageUrl && (
+        {imageValidator(url) ?
           <img
-            alt='post_preview'
+            alt='post_img'
             src={imageUrl}
             // autoComplete="off"
             placeholder="Image URL"
@@ -69,7 +102,7 @@ function AddPostForm({ closeModal }) {
                 "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
             }
           />
-        )}
+        :
         <div>
           <label> Image </label>
           <input
@@ -77,9 +110,10 @@ function AddPostForm({ closeModal }) {
             placeholder="Image URL"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-          />
+            />
         </div>
-        <div>
+          }
+        <div className="add-post-caption-div">
           <label> Caption </label>
           <textarea
             id="add-post-label-caption"
@@ -93,7 +127,7 @@ function AddPostForm({ closeModal }) {
         <button
             type="submit"
             className="add-post-create-button"
-        //   disabled={errors.length > 0}
+          // disabled={errors.length > 0}
         >
           Post
         </button>

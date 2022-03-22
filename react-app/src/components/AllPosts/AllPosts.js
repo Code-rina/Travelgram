@@ -42,11 +42,9 @@ function AllPosts(){
                         <div className="posts-user">{post?.username}</div>
                                 <img className='posts-feed-image'
                                     alt={post?.id}
-                                    src={
-                                    post?.image_url ? 
-                                    post?.image_url : 
-                                    "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg"    
-                                    }
+                                    src={post?.image_url}
+                                    onError={(e) =>
+                                    (e.target.src = "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")} 
                                 />
                                 {/* <GetAllComments id={post.id} /> */}
                         

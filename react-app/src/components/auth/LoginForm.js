@@ -71,14 +71,16 @@ const LoginForm = () => {
             <div className="home-demo-div">
                 <DemoUser />
             </div>
-            <div className="home-signup-from-login">
-              <h3 className="home-dont-have-an-acct-txt">Don't have an account?</h3>
-                  <div className="home-signup-from-login-button">
-                    <SignUpFormModal />
-                  </div>
-            </div>
           </div>
         </form>
+        <div className="home-signup-div">
+        <div className="home-signup-from-login">
+          <h3 className="home-dont-have-an-acct-txt">Don't have an account?</h3>
+        </div>
+        <div className="home-signup-from-login-button">
+          <SignUpFormModal />
+        </div>
+        </div>
       </div>
     </div>
   );

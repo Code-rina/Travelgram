@@ -78,7 +78,7 @@ hurt to run it again.
 6. Login to the heroku container registry
 
    ```bash
-   heroku container:login
+    heroku container:login
    ```
 
 7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
