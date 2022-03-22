@@ -33,7 +33,7 @@ function AddPostForm({ closeModal }) {
     // if (errors.length === 0) {
     // console.log("payload:::::", payload)
     data = await dispatch(addOnePostThunk(payload));
-    console.log("result::::", data)
+    // console.log("result::::", data)
     
     if (data) {
       if (data.errors) {
@@ -43,6 +43,7 @@ function AddPostForm({ closeModal }) {
         history.push('/')
       }
     }
+  }
 
 
 
@@ -57,7 +58,6 @@ function AddPostForm({ closeModal }) {
     //   closeModal(false);
     // }
     // window.location.reload(false)
-  }
 
   if (!sessionUser) {
     history.push(`/login`)
@@ -81,18 +81,18 @@ function AddPostForm({ closeModal }) {
   return (
     <div className="add-post-main-container">
       <div className="add-post-sub-container">
-        <h3>Create a new post</h3>
         <form className="add-post-form" onSubmit={handleSubmit}>
           <ul>
             {errors && errors.map((error, index) => (
               <li key={index}>{error}</li>
-            ))}
+              ))}
           </ul>
           <div className="add-post-div-container">
+              <h3 className="add-post-create-new-post-text">Create a new post</h3>
               {/* <h4>Uploaded picture preview...</h4> */}
         {imageValidator(url) ?
           <img
-            alt='post_preview'
+            alt='post_img'
             src={imageUrl}
             // autoComplete="off"
             placeholder="Image URL"
@@ -103,7 +103,6 @@ function AddPostForm({ closeModal }) {
             }
           />
         :
-        
         <div>
           <label> Image </label>
           <input
@@ -114,7 +113,7 @@ function AddPostForm({ closeModal }) {
             />
         </div>
           }
-        <div>
+        <div className="add-post-caption-div">
           <label> Caption </label>
           <textarea
             id="add-post-label-caption"

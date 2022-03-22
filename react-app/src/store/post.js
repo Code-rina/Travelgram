@@ -84,7 +84,7 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
     else if (response.status < 500) {
         const data = await response.json();
         if(data.errors) {
-            console.log("data::::",data)
+            // console.log("data::::",data)
             return data
         }
     }
@@ -106,6 +106,13 @@ export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
         const data = await response.json();
         dispatch(editOnePostAction(data))
         return data
+    }
+    else if (response.status < 500) {
+        const data = await response.json();
+        if(data.errors) {
+            console.log("data::::",data)
+            return data
+        }
     }
 }
 

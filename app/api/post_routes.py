@@ -76,7 +76,7 @@ def edit_post(id):
 
     return edit_post.to_dict()
   else:
-    return{'errors': validation_errors_to_error_messages(form.errors)}
+    return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Delete a post
 @post_routes.route('/deletepost/<int:id>', methods=["DELETE"])

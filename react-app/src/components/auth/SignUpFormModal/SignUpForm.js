@@ -90,7 +90,7 @@ const SignUpForm = () => {
             ))}
           </div>
           <div className="signup-label-input-div">
-              <label htmlFor='fullname'>Full name</label>
+              <label className="signup-labels" htmlFor='fullname'>Full name</label>
               <input
                 className='form-input-field'
                 type='text'
@@ -99,7 +99,7 @@ const SignUpForm = () => {
                 onChange={updateFullname}
                 value={fullname}
               />
-              <label htmlFor='username'>Username</label>
+              <label className="signup-labels" htmlFor='username'>Username</label>
               <input
               type='text'
               className='form-input-field'
@@ -108,7 +108,7 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
               />
-              <label htmlFor='email'>Email</label>
+              <label className="signup-labels" htmlFor='email'>Email</label>
               <input
               type='text'
               className='form-input-field'
@@ -117,7 +117,7 @@ const SignUpForm = () => {
               onChange={updateEmail}
               value={email}
               />
-              <label htmlFor='password'>Password</label>
+              <label className="signup-labels" htmlFor='password'>Password</label>
               <input
               type='password'
               className='form-input-field'
@@ -126,7 +126,7 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
               />
-              <label htmlFor='confirm_password'>Confirm Password</label>
+              <label className="signup-labels" htmlFor='confirm_password'>Confirm Password</label>
               <input
                 type='password'
                 className='form-input-field'
