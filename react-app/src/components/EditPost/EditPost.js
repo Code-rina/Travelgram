@@ -45,7 +45,7 @@ function EditPostForm({ closeModal }) {
       }
     }
   }
-
+  
   useEffect(() => {
     dispatch(getOnePostThunk(id))
     if(caption) localStorage.setItem("caption", post?.id)
@@ -53,7 +53,7 @@ function EditPostForm({ closeModal }) {
 
   useEffect(() => {
     const errors = []
-    if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
+    if(caption?.length > 500) errors.push("Caption text must be less than 2,200 characters.")
     setErrors(errors)
   }, [caption])
   

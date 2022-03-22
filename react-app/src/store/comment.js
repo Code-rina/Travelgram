@@ -65,6 +65,13 @@ export const deleteOneCommentAction = (comment) => {
         //    console.log("data:::::", data)
            return data
        }
+       else if (response.status < 500) {
+        const data = await response.json();
+        if(data.errors) {
+            // console.log("data::::",data)
+            return data
+        }
+    }
    }
 
    export const editOneCommentThunk = ({ comment, id }) => async (dispatch) => {

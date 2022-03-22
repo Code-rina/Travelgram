@@ -23,21 +23,31 @@ function AddCommentForm({ closeModal, id }) {
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let data;
     const payload = {
       userId: sessionUser.id,
       postId: id,
       comment,
     };
     // console.log("#########", payload)
-    const newComment = dispatch(addOneCommentThunk(payload));
-    if (newComment) {
-      // history.push(`/`);
-      setComment('')
-      closeModal(false);
+    data = await dispatch(addOneCommentThunk(payload));
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        history.push('/')
+      }
     }
   }
+  //   if (newComment) {
+  //     // history.push(`/`);
+  //     setComment('')
+  //     closeModal(false);
+  //   }
+  // }
   if (!sessionUser) {
     history.push(`/login`)
   }
@@ -54,7 +64,7 @@ function AddCommentForm({ closeModal, id }) {
   return (
     <div className="add-comment-main-container">
       <div className="add-comment-sub-container">
-        <h3>Create a new comment</h3>
+        <h3 className="add-comment-create-new-comment-text">Create a new comment</h3>
         <form className="add-comment-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, index) => (
