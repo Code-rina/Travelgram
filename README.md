@@ -98,7 +98,7 @@ hurt to run it again.
       heroku container:release web -a {NAME_OF_HEROKU_APP}
       heroku container:release web -a apptravelgram
       ```
-
+   
 10. set up your database
 
       ```bash
