@@ -75,13 +75,21 @@ export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch
             caption
         }),
     })
-    console.log("response:::", response)
+    // console.log("response:::", response)
     if (response.ok) {
         const data = await response.json();
         dispatch(addOnePostAction(data))
         return data
     }
+    else if (response.status < 500) {
+        const data = await response.json();
+        if(data.errors) {
+            console.log("data::::",data)
+            return data
+        }
+    }
 }
+
 
 export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
     // console.log("caption:::::::",caption)

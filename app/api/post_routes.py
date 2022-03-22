@@ -55,7 +55,7 @@ def create_post():
 
     return post.to_dict()   
   else:
-    return{'errors': validation_errors_to_error_messages(form.errors)}
+    return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Edit a post
 @post_routes.route('/editpost/<int:id>', methods=["PUT"])

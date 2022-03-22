@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { addOnePostThunk } from "../../store/post";
+import { getAllPostsThunk, addOnePostThunk } from "../../store/post";
+
 
 
 
@@ -16,23 +17,45 @@ function AddPostForm({ closeModal }) {
     const [errors, setErrors] = useState([]);
     const [caption, setCaption] = useState('');
     const [imageUrl, setImageUrl] = useState('')
+    // const [validateErrors, setValidateErrors] = useState([])
 
   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let data;
     const payload = {
       userId: sessionUser.id,
       imageUrl,
       caption,
     };
-    console.log("payload:::::", payload)
-    const newPost = await dispatch(addOnePostThunk(payload));
-    console.log("newPost::::", newPost)
-    if (newPost) {
-      history.push(`/`);
-      closeModal(false);
+    // console.log("errors::::", errors)
+    // if (errors.length === 0) {
+    // console.log("payload:::::", payload)
+    data = await dispatch(addOnePostThunk(payload));
+    console.log("result::::", data)
+    
+    if (data) {
+      if (data.errors) {
+        setErrors(data.errors)
+      } else {
+        closeModal(false)
+        history.push('/')
+      }
     }
+
+
+
+    // if (result && result.errors) {
+    //   setErrors(result.errors)
+    //   console.log("errors::::", errors)
+    // }
+  
+    // if (result) {
+    //   // await dispatch(getAllPostsThunk())
+    //   history.push(`/`);
+    //   closeModal(false);
+    // }
     // window.location.reload(false)
   }
 
@@ -49,8 +72,10 @@ function AddPostForm({ closeModal }) {
   //   setErrors(errors)
   // }, [imageUrl, caption])
   
-  const imageValidator = (url) => {
-    return /\.(png|jpeg|jpg)$/.test(url)
+  const url = imageUrl[0]?.url
+
+  const imageValidator = (image) => {
+    return /\.(png|jpeg|jpg)$/.test(image)
   }
 
   return (
@@ -59,13 +84,13 @@ function AddPostForm({ closeModal }) {
         <h3>Create a new post</h3>
         <form className="add-post-form" onSubmit={handleSubmit}>
           <ul>
-            {errors.map((error, index) => (
+            {errors && errors.map((error, index) => (
               <li key={index}>{error}</li>
             ))}
           </ul>
           <div className="add-post-div-container">
               {/* <h4>Uploaded picture preview...</h4> */}
-        {imageValidator(imageUrl) ?
+        {imageValidator(url) ?
           <img
             alt='post_preview'
             src={imageUrl}
@@ -78,8 +103,7 @@ function AddPostForm({ closeModal }) {
             }
           />
         :
-        <img src={"https://i.pinimg.com/564x/a2/3b/ba/a23bba7866bcb9f862b484fbb02fac5c.jpg"} alt="default_img"></img>
-        }
+        
         <div>
           <label> Image </label>
           <input
@@ -87,8 +111,9 @@ function AddPostForm({ closeModal }) {
             placeholder="Image URL"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-          />
+            />
         </div>
+          }
         <div>
           <label> Caption </label>
           <textarea
@@ -103,7 +128,7 @@ function AddPostForm({ closeModal }) {
         <button
             type="submit"
             className="add-post-create-button"
-        //   disabled={errors.length > 0}
+          // disabled={errors.length > 0}
         >
           Post
         </button>

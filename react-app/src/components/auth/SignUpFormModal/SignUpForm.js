@@ -89,12 +89,12 @@ const SignUpForm = () => {
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
+          <div className="signup-label-input-div">
               <label htmlFor='fullname'>Full name</label>
               <input
                 className='form-input-field'
                 type='text'
-                placeholder='Full name'
+                placeholder='Your full name here...'
                 name='fullname'
                 onChange={updateFullname}
                 value={fullname}
@@ -103,7 +103,7 @@ const SignUpForm = () => {
               <input
               type='text'
               className='form-input-field'
-              placeholder='Username'
+              placeholder='Your username here...'
               name='username'
               onChange={updateUsername}
               value={username}
@@ -112,7 +112,7 @@ const SignUpForm = () => {
               <input
               type='text'
               className='form-input-field'
-              placeholder='Email'
+              placeholder='Your email here...'
               name='email'
               onChange={updateEmail}
               value={email}
@@ -121,7 +121,7 @@ const SignUpForm = () => {
               <input
               type='password'
               className='form-input-field'
-              placeholder='Password'
+              placeholder='Your password here...'
               name='password'
               onChange={updatePassword}
               value={password}
@@ -130,7 +130,7 @@ const SignUpForm = () => {
               <input
                 type='password'
                 className='form-input-field'
-                placeholder='Confirm password'
+                placeholder='Your confirmed password here...'
                 name='confirm_password'
                 onChange={updateConfirmPassword}
                 value={confirmPassword}
@@ -147,7 +147,7 @@ const SignUpForm = () => {
               /> */}
           </div>
           <div>
-            <button type='submit' className='signUp-button-form'>Submit</button>
+            <button type='submit' className='signup-button-form'>Submit</button>
           </div>
         </form>
         <div className='demo-user-button'>

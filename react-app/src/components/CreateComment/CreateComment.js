@@ -19,6 +19,7 @@ function AddCommentForm({ closeModal, id }) {
     const [comment, setComment] = useState('');
     const [userId, setUserId] = useState('')
     // const [postId, setPostId] = useState('')
+  
 
 
 
@@ -33,6 +34,7 @@ function AddCommentForm({ closeModal, id }) {
     const newComment = dispatch(addOneCommentThunk(payload));
     if (newComment) {
       // history.push(`/`);
+      setComment('')
       closeModal(false);
     }
   }
@@ -40,14 +42,14 @@ function AddCommentForm({ closeModal, id }) {
     history.push(`/login`)
   }
 
-//   useEffect(() => {
-//     const errors = []
-//     if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
-//     if(imageUrl?.length > 255) errors.push("Valid Image Url has to be less than 255 characters.")
-//     // if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
-//     if(!imageUrl?.includes("http" || "https")) errors.push("Valid Image Url has to start with 'http' or 'https'.")
-//     setErrors(errors)
-//   }, [imageUrl, caption])
+  // useEffect(() => {
+  //   const errors = []
+  //   if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
+  //   if(imageUrl?.length > 255) errors.push("Valid Image Url has to be less than 255 characters.")
+  //   // if(imageUrl?.length === 0) errors.push("Please provide Image Url.")
+  //   if(!imageUrl?.includes("http" || "https")) errors.push("Valid Image Url has to start with 'http' or 'https'.")
+  //   setErrors(errors)
+  // }, [imageUrl, caption])
   
   return (
     <div className="add-comment-main-container">
