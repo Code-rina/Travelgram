@@ -89,12 +89,14 @@ hurt to run it again.
 
    ```bash
    heroku container:push web -a {NAME_OF_HEROKU_APP}
+   heroku container:push web -a apptravelgram
    ```
 
 9. Release your docker container to heroku
 
       ```bash
       heroku container:release web -a {NAME_OF_HEROKU_APP}
+      heroku container:release web -a apptravelgram
       ```
 
 10. set up your database
