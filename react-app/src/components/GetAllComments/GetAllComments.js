@@ -53,16 +53,16 @@ let filteredCommentsArray = allCommentsArray.filter((oneComment) => {
      <div className="comments-main-container">
 
             {filteredCommentsArray?.map((oneComment) => ( 
-                <div key={id}>
-                    <div>{oneComment.username}</div>
+                <div className="comments-sub-container" key={id}>
+                    <div className="add-comment-username-txt">{oneComment.username}</div>
                     <div>{oneComment.comment}</div>
-                        <div>
+                        <div className="comments-box">
                         {(sessionUser?.id === oneComment?.user_id) ?
                             <EditCommentModal id={id} comment={comment} oneComment={oneComment} />
                        : null }
                        {(sessionUser?.id === oneComment?.user_id) ? 
                         <div>
-                            <button className='delete-comment-button' onClick={(e)=>handleDeleteComment(oneComment, e)}>Delete</button>
+                            <button className='delete-comment-button' onClick={(e)=>handleDeleteComment(oneComment, e)}>Delete Comment</button>
                         </div>
                         : null}
                         </div>    

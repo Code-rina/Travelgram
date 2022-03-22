@@ -31,7 +31,7 @@
     font-size: 17px;
     font-weight: 500;
     padding-top: 10px;
-    padding-bottom: 7px;
+    /* padding-bottom: 7px; */
     padding-left: 23px;
 }
 
@@ -52,6 +52,78 @@
     list-style-type: none;
     border-bottom: none;
     text-decoration: none;
+}
+.edit-delete-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+.edit-post-button {
+    line-height: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    background-color: rgb(180,180,180);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.delete-post-button {
+    line-height: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    background-color: rgb(180,180,180);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.add-comment-button {
+    line-height: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* display: block;
+    display: flex;
+    flex-direction: row; */
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    background-color: rgb(180,180,180);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
 }
 
 
