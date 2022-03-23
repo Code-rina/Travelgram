@@ -84,7 +84,7 @@ export const signUp = (username, fullname, email, password, confirmPassword) => 
       confirm_password: confirmPassword,
     }),
   })
-  console.log("response:::::::", response)
+  // console.log("response:::::::", response)
   
   if (response.ok) {
     const data = await response.json();
