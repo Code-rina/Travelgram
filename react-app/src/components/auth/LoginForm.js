@@ -34,7 +34,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="home-main-container">
+    <div className="login-main-container">
       <div className="home-logo-div">
         <img className="home-logo-img" src="https://thecybersafetylady.com.au/wp-content/uploads/2018/10/Screen-Shot-2018-10-05-at-2.09.37-pm-600x900.png" alt="ig_phone_pic_logo"/>
       </div>
