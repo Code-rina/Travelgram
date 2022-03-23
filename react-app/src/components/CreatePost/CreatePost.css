@@ -5,7 +5,11 @@
 .Modal{
     overflow: hidden;
     border-radius: 12px;
+    /* overflow-y: hidden; */
 }
+/* .add-post-modal {
+    height: 100%;
+} */
 .add-post-main-container {
     margin: auto;
     width: 500px;
@@ -17,7 +21,7 @@
 .add-post-main-container {
     margin: auto;
     width: 400px;
-    height: 300px;
+    height: 100%;
     background-color: white;
     border-radius: 5px;
 }
@@ -31,12 +35,29 @@
 }
 .add-post-create-new-post-text {
     font-size: 18px;
-
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.add-post-label-caption {
-    width: 50px;
-    height: 30px;
-    padding-top: 20px;
+.add-post-label-txt {
+    font-size: 16px;
+    font-weight: 400;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#add-post-label-image {
+    width: 185px;
+}
+
+
+#add-post-label-caption {
+    width: 190px;
+    height: 80px;
+    resize: none;
 }
 .add-post-form {
     display: flex;
@@ -63,13 +84,19 @@
     margin-bottom: 20px;
     margin-top: 15px;
 }
+
+.add-post-create-div {
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: row;
+}
 .cancel-add-button {
     line-height: 18px;
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 9px;
@@ -81,4 +108,5 @@
     color: white;
     border: 1px solid white;
     border-radius: 4px;
+    /* margin-bottom: 2px; */
 }

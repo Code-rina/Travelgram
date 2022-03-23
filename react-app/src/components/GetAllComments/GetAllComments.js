@@ -18,17 +18,25 @@ function GetAllComments({id, comment}) {
     const sessionUser = useSelector((state) => state.session?.user);
     // const [sessionId, setSessionId] = useState()
     // const postId = useSelector((state) => state.post[id])
-     const allCommentsArray = Object.values(allComments)
     //  console.log("allCommentsArray:::::::", allCommentsArray)
     // const { id } = useParams()
-
+    const [filteredCommentsArray, setFilteredCommentsArray] = useState([])
     const post = useSelector((state) => state.post)
     const userComment = useSelector((state) => state.comment?.comments?.user_id)
     // console.log("comment::::::::", comment)
-
+    
+    // let filteredCommentsArray;
+    
     useEffect(() => {
-        dispatch(getAllCommentsThunk())
-    }, [dispatch]);
+        
+        // (async () => {
+        //    let data = await dispatch(getAllCommentsThunk())
+        // })()
+        const allCommentsArray = Object.values(allComments)
+        setFilteredCommentsArray(allCommentsArray.filter((oneComment) => {
+            return oneComment.post_id === id
+        }))
+    }, [allComments]);
 
     if (!sessionUser) {
         history.push(`/login`)
@@ -44,9 +52,7 @@ function GetAllComments({id, comment}) {
 // comment.post_id === post.id 
 
 
-let filteredCommentsArray = allCommentsArray.filter((oneComment) => {
-    return oneComment.post_id === id
-})
+console.log("filteredArray:::::::", filteredCommentsArray)
 // console.log("filtered::::::::", allComments)
 
     return (   
@@ -55,7 +61,7 @@ let filteredCommentsArray = allCommentsArray.filter((oneComment) => {
             {filteredCommentsArray?.map((oneComment) => ( 
                 <div className="comments-sub-container" key={id}>
                     <div className="add-comment-username-txt">{oneComment.username}</div>
-                    <div>{oneComment.comment}</div>
+                    <div className="comments-comment">{oneComment.comment}</div>
                         <div className="comments-box">
                         {(sessionUser?.id === oneComment?.user_id) ?
                             <EditCommentModal id={id} comment={comment} oneComment={oneComment} />

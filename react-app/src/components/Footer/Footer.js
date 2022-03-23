@@ -7,13 +7,13 @@ const Footer = () => {
   return (
     <div className="footer-main-container">
       <ul className="footer-languages">
-          <li className="languages">Javasctipt</li>
+          <li className="languages">Javascript</li>
           <li className="languages">Python</li>
           <li className="languages">Flask</li>
           <li className="languages">React</li>
           <li className="languages">Redux</li>
           <li className="languages">SQLAlchemy</li>
-          <li className="languages">Postgre</li>
+          <li className="languages">Postgres</li>
           <li className="languages">Docker</li>
           <li className="languages">Git</li>
       </ul>

@@ -40,7 +40,7 @@ font-family: 'Cookie', cursive;
     margin-top: 15%;
     margin-left: 15%;
     width: 360px;
-    height: 360px;
+    height: 100%;
     box-sizing: border-box;
     border: 1px solid rgb(214,214,214);
     background-color: rgb(255, 255, 255)
@@ -86,6 +86,9 @@ font-family: 'Cookie', cursive;
     margin-bottom: 16px;
     /* margin-left: auto;
     margin-right: auto; */
+    display: flex;
+    flex-direction: row;
+
 }
 
 .login-button {
@@ -116,23 +119,29 @@ font-family: 'Cookie', cursive;
 
 .home-demo-button {
     line-height: 18px;
-    box-sizing: border-box;
     cursor: pointer;
-    display: block;
     font-size: 14px;
     font-weight: 400;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 9px;
     padding-right: 9px;
-    margin: auto;
+    margin-left: 10px;
+
     text-align: center;
-    width: auto;
     background-color: rgb(180,180,180);
     color: white;
     border: 1px solid white;
     border-radius: 4px;
 }
+
+.demo-user-button {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    align-items: center;
+}
+
 
 .home-dont-have-an-acct-txt {
     font-size: 15px;
@@ -140,6 +149,7 @@ font-family: 'Cookie', cursive;
     color: rgb(34,34,34);
     display: flex;
     flex-direction: row;
+    margin-top: 15px;
 }
 
 .home-sign-up-button {
@@ -152,8 +162,11 @@ font-family: 'Cookie', cursive;
     background-color: rgb(250, 250, 250);
     display: flex;
     flex-direction: row;
+    margin-bottom: 15px;
 }
 
-/* .home-signup-div {
-    justify-content: center;
-} */
+.home-signup-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

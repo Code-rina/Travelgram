@@ -52,6 +52,12 @@ function AddCommentForm({ closeModal, id }) {
     history.push(`/login`)
   }
 
+  useEffect(() => {
+    const errors = []
+    if(comment?.length > 500) errors.push("Comment must be less than 500 characters.")
+    setErrors(errors)
+  }, [comment])
+
   // useEffect(() => {
   //   const errors = []
   //   if(caption?.length > 2200) errors.push("Caption text must be less than 2,200 characters.")
@@ -73,13 +79,14 @@ function AddCommentForm({ closeModal, id }) {
           </ul>
           <div className="add-comment-div-container">
           <label> Comment </label>
-          <input
+          <textarea
             id="add-comment-label"
-            placeholder="Comment"
+            placeholder="Your comment here..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
         </div>
+        <div className="add-post-create-div">
         <button
             type="submit"
             className="add-post-create-button"
@@ -90,6 +97,7 @@ function AddCommentForm({ closeModal, id }) {
         <button className="cancel-add-button" type="true" onClick={ closeModal }>
           Cancel
         </button>
+        </div>
     </form>
     </div>
     </div>

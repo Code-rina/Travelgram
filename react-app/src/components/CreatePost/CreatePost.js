@@ -40,7 +40,7 @@ function AddPostForm({ closeModal }) {
         setErrors(data.errors)
       } else {
         closeModal(false)
-        // history.push('/posts/')
+        history.push('/')
       }
     }
   }
@@ -78,17 +78,23 @@ function AddPostForm({ closeModal }) {
     return /\.(png|jpeg|jpg)$/.test(image)
   }
 
+  useEffect(() => {
+    const errors = []
+    if(caption?.length > 500) errors.push("Caption text must be less than 500 characters.")
+    setErrors(errors)
+  }, [caption])
+
   return (
     <div className="add-post-main-container">
       <div className="add-post-sub-container">
         <form className="add-post-form" onSubmit={handleSubmit}>
+        <h3 className="add-post-create-new-post-text">Create a new post</h3>
           <ul>
             {errors && errors.map((error, index) => (
               <li key={index}>{error}</li>
               ))}
           </ul>
           <div className="add-post-div-container">
-              <h3 className="add-post-create-new-post-text">Create a new post</h3>
               {/* <h4>Uploaded picture preview...</h4> */}
         {imageValidator(url) ?
           <img
@@ -104,20 +110,20 @@ function AddPostForm({ closeModal }) {
           />
         :
         <div>
-          <label> Image </label>
+          <label className="add-post-label-txt"> Image </label>
           <input
             id="add-post-label-image"
-            placeholder="Image URL"
+            placeholder="Your Image url here..."
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
             />
         </div>
           }
         <div className="add-post-caption-div">
-          <label> Caption </label>
+          <label className="add-post-label-txt"> Caption </label>
           <textarea
             id="add-post-label-caption"
-            placeholder="Caption"
+            placeholder="Your caption here..."
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
           />

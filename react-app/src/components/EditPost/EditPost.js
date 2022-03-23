@@ -53,15 +53,15 @@ function EditPostForm({ closeModal }) {
 
   useEffect(() => {
     const errors = []
-    if(caption?.length > 500) errors.push("Caption text must be less than 2,200 characters.")
+    if(caption?.length > 500) errors.push("Caption text must be less than 500 characters.")
     setErrors(errors)
   }, [caption])
   
   return (
     <div className="edit-post-main-container">
       <div className="edit-post-sub-container">
-        <h3>Edit a post</h3>
         <form className="edit-post-form" onSubmit={handleSubmit}>
+        <h3 className="edit-post-edit-txt">Edit a post</h3>
           <ul>
             {errors.map((error, index) => (
               <li key={index}>{error}</li>
@@ -69,12 +69,12 @@ function EditPostForm({ closeModal }) {
           </ul>
           <div className="edit-post-div-container">
               {/* <h4>Uploaded picture preview...</h4> */}
-          <div>
+          <div className="edit-post-caption-div">
           <label> Caption </label>
           <textarea
             id="edit-post-label-caption"
-            placeholder="Caption"
-            autoComplete="off"
+            placeholder="Your caption here..."
+            // autoComplete="off"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
           />
