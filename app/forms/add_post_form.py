@@ -6,7 +6,7 @@ from app.models import Post
 
 # def image_valid(form, field):
 #     image_url = field.data
-#     if "http" not in "image_url" or "https" not in "image_url" or"." not in "image_url":
+#     if "http" not in "image_url" or "https" not in "image_url" or"jpg" not in "image_url" or"jpeg" not in "image_url" or"png" not in "image_url":
 #         raise ValidationError("Please provide a valid url.")
 # Figure out why is the function above not working
 
@@ -16,6 +16,5 @@ class AddPostForm(FlaskForm):
     
     image_url = StringField('image_url', validators=[
                            DataRequired(message='Please provide an image url.'), URL(require_tld=True, message="The url provided is not valid. Please provide a valid url.")])
-                        #    , image_valid
-  
+#   , image_valid
     submit = SubmitField('submit')

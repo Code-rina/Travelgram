@@ -15,9 +15,9 @@ const NavBar = () => {
 
   return (
     <nav className="navbar-main-container">
-      <div>
+      <div className="navbar-sub-container">
       {sessionUser && 
-        <ul className="nav-logo-div">
+        <div className="nav-logo-div">
           <NavLink className="nav-logo" to='/' exact={true} activeClassName='active'>
             Travelgram
           </NavLink>
@@ -26,13 +26,13 @@ const NavBar = () => {
             User
           </NavLink>
         </li> */}
-        <li className="nav-li">
+        <div className="nav-li">
           <AddPostModal />
-        </li>
-        <li className="nav-li">
+        </div>
+        <div className="nav-li">
           <LogoutButton />
-        </li>
-        </ul>}
+        </div>
+        </div>}
       </div>
     </nav>
   );

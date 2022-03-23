@@ -12,6 +12,7 @@ import Home from './components/Home/Home'
 import AllPosts from './components/AllPosts/AllPosts'
 import SinglePost from './components/SinglePost/SinglePost'
 import Footer from './components/Footer/Footer'
+import { getAllCommentsThunk } from './store/comment'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getAllCommentsThunk())
       setLoaded(true);
     })();
   }, [dispatch]);

@@ -57,6 +57,12 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
   //   history.push(`/login`)
   // }  
 
+  useEffect(() => {
+    const errors = []
+    if(comments?.length > 500) errors.push("Comment must be less than 500 characters.")
+    setErrors(errors)
+  }, [comments])
+
 
   return (
     <div className="edit-comment-main-container">
@@ -70,11 +76,11 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
           </ul>
           <div className="edit-comment-div-container">
               {/* <h4>Uploaded picture preview...</h4> */}
-          <div>
-          <label> Comment </label>
+          <div className="edit-comment-label-div">
+          <label className="edit-comment-comment"> Comment </label>
           <textarea
             id="edit-comment-label-caption"
-            placeholder="Comment"
+            placeholder="Your comment here..."
             // autoComplete="on"
             value={comments}
             onChange={(e) => setComments(e.target.value)}
@@ -84,12 +90,12 @@ function EditCommentForm({ closeModal, comment, oneComment}) {
       <div className="edit-comment-create-div">
         <button
             type="submit"
-            className="edit-comment-create-button"
+            className="add-post-create-button"
         //   disabled={errors.length > 0}
         >
           Submit
         </button>
-        <button className="cancel-edit-button" type="true" onClick={ closeModal }>
+        <button className="cancel-add-button" type="true" onClick={ closeModal }>
           Cancel
         </button>
       </div>

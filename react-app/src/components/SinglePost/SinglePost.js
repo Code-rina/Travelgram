@@ -80,7 +80,7 @@ function SinglePost({post_id}){
                     "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
                 }
             />
-            <div className="single-post-description">{post?.caption}</div>
+            <div className="single-post-caption">{post?.caption}</div>
             <div>
                 <AddCommentModal id={post.id} />
                 

@@ -3,14 +3,37 @@
 }
 
 .add-comment-username-txt {
+    /* margin-top: 20px; */
     padding-top: 10px;
     font-weight: 500;
+    padding-left: 8px;
+    font-size: 16px;
 }
+.comments-sub-container {
+    border-bottom: 1px solid rgb(240,240,240);
+}
+
+/* .single-post-caption {
+    border-bottom: 1px solid rgb(214,214,214);
+} */
+.comments-main-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
 .comments-box {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 5px;
+}
+.comments-comment {
+    font-size: 15px;
+    padding-left: 8px;
+    font-weight: 300;
+    inline-size: 600px;
+    overflow-wrap:break-word;
 }
 
 .edit-comment-button {
@@ -26,10 +49,10 @@
     padding-bottom: 2px;
     padding-left: 4px;
     padding-right: 4px;
-    margin: auto;
+    margin-top: 15px;
     /* text-align: center; */
     width: auto;
-    background-color: rgb(180,180,180);
+    background-color: rgb(200, 200, 200);
     color: white;
     border: 1px solid white;
     border-radius: 4px;
@@ -48,12 +71,18 @@
     padding-bottom: 2px;
     padding-left: 4px;
     padding-right: 4px;
-    margin: auto;
+    margin-top: 15px;
     /* text-align: center; */
     width: auto;
-    background-color: rgb(180,180,180);
+    background-color: rgb(200, 200, 200);
     color: white;
     border: 1px solid white;
     border-radius: 4px;
     margin-bottom: 20px;
+}
+
+.delete-comment-button:hover,
+.edit-comment-button:hover {
+    background-color: rgb(0, 138, 240);
+    border: 1px solid rgb(0, 138, 240);
 }

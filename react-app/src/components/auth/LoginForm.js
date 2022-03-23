@@ -66,10 +66,10 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <div className="login-button-div">
-            <button className="login-button"type='submit'>Log in</button>
-            </div>
-            <div className="home-demo-div">
-                <DemoUser />
+              <button className="login-button"type='submit'>Log in</button>
+              <div className="home-demo-div">
+                  <DemoUser />
+              </div>
             </div>
           </div>
         </form>

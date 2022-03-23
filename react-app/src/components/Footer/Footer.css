@@ -65,8 +65,8 @@
     /* figure out why the icon color not changing to grey */
     color: rgb(131,131,131);
     font-size: 30px;
-    transform: translate(-35%);
-    background-color: transparent;
+    /* transform: translate(-35%);
+    background-color: transparent; */
     padding-left: 20px;
     padding-right: 10px;
 }

@@ -8,7 +8,7 @@ function AddCommentModal({id}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
-      <div>
+      <div className="add-comment-button-div">
         <button className='add-comment-button' onClick={() => setShowModal(true)}>Add Comment</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

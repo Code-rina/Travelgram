@@ -36,6 +36,7 @@ function AllPosts(){
  // https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg
     return (
         <div className="posts-main-container">
+            <div className="posts-sub-container">
             {allPostsArray?.sort((a,b)=> (a.id < b.id ? 1 : -1)).map((post) => ( 
                 <div className="posts-all-container">
                     <Link id="single-post-link" to={`/posts/${post?.id}`}>
@@ -52,6 +53,7 @@ function AllPosts(){
                     </Link>
                 </div>
             ))}
+            </div>
         </div>
     )
 }    
