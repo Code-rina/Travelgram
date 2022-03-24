@@ -54,11 +54,11 @@ function App() {
         {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute> */}
+        <ProtectedRoute>
+          <ErrorPage />
+        </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
-        </Route>
-        <Route path="*">
-          <ErrorPage />
         </Route>
       </Switch>
       <Footer />
