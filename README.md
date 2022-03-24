@@ -2,7 +2,7 @@
 
 #### Travelgram is an Instagram clone developed by a single developer Katerina Kreibich. All content is forprivate, non-commercial and non-profit use.
 
-#### Checkout live site of [Travelgram](https://apptravelgram.herokuapp.com/)
+#### Enjoy browsing the live site: [Travelgram](https://apptravelgram.herokuapp.com/)
 
 
 #### Index:
