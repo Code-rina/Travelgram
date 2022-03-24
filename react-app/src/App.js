@@ -48,7 +48,7 @@ function App() {
         <ProtectedRoute path='/posts/:id' exact={true} >
           <SinglePost />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
+        <ProtectedRoute path='/users/:id' exact={true} >
           <User />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/users/:userId' exact={true} >

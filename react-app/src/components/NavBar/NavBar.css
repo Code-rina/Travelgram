@@ -70,8 +70,22 @@
     border-bottom: none;
     text-decoration: none;
     cursor: pointer;
-    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
     font-weight: 500;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(213, 0, 138);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 1000;
+    /* margin-left: 20px; */
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 .add-post-button {
     background-color: rgb(240, 240, 240);
@@ -110,3 +124,4 @@
     /* margin-right: 50px; */
 
 }
+
