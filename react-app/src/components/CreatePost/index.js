@@ -9,7 +9,7 @@ function AddPostModal() {
 
     return (
       <div>
-        <button className='add-post-button' onClick={() => setShowModal(true)}><i className="fa-solid fa-plus"></i></button>
+        <button className='add-post-button' onClick={() => setShowModal(true)}>Create Post</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <AddPostForm className='add-post-modal' closeModal={() => setShowModal(false)}/>

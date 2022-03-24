@@ -30,7 +30,7 @@ const NavBar = () => {
           </div>
           <div className="nav-li">
             <NavLink className="nav-user" to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
-              <i className="fa-solid fa-user"></i>
+              <h3 className="create-post">User</h3>
             </NavLink>
           </div>
           <div className="nav-li">
