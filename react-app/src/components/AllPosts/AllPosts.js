@@ -24,7 +24,11 @@ function AllPosts(){
    const allPostsArray = Object.values(allPosts)
 //    console.log("allPostsArray::::::", allPostsArray)
 
-   
+//    console.log("allPosts.id::::", allPosts)
+
+//     if(allPosts.id === undefined) {
+//     history.push('/page-not-found')
+//     }
 
     useEffect(() => {
         dispatch(getAllPostsThunk())
@@ -33,6 +37,8 @@ function AllPosts(){
     if (!user) {
         history.push(`/login`)
     }
+    
+    
  // https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg
     return (
         <div className="posts-main-container">

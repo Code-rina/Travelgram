@@ -29,7 +29,9 @@ function SinglePost({post_id}){
     // const usersComment = useSelector((state) => state.comment?.comments) 
     // console.log("usersComment:::::", usersComment)
     // console.log("post_id::::::", post_id)
-
+    // const allPosts = useSelector((state) => state?.post?.posts)
+    // const allPostsArray = Object.values(allPosts)
+    // console.log("allPosts.id::::", allPosts)
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
     // console.log("usersComment::::::", usersComment)
 
@@ -54,6 +56,10 @@ function SinglePost({post_id}){
         
     }
 
+    // if(allPosts.id === undefined) {
+    //     history.push('/page-not-found')
+    //     }
+    
     
 
     return (
