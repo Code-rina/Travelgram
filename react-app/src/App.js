@@ -55,7 +55,7 @@ function App() {
           <User />
         </ProtectedRoute> */}
         <ProtectedRoute>
-          <ErrorPage />
+          <ErrorPage />  
         </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
