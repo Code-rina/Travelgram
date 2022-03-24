@@ -86,7 +86,7 @@
     margin-bottom: 5px;
     text-align: center;
     width: auto;
-    background-color: rgb(200, 200, 200);
+    background-color: #cab19b;
     color: white;
     border: 1px solid white;
     border-radius: 4px;
@@ -113,7 +113,7 @@
     margin: auto;
     text-align: center;
     width: auto;
-    background-color: rgb(200, 200, 200);
+    background-color: #cab19b;
     color: white;
     border: 1px solid white;
     border-radius: 4px;
@@ -121,8 +121,8 @@
 }
 .delete-post-button:hover,
 .edit-post-button:hover {
-    background-color: rgb(213,0,138);
-    border: 1px solid rgb(213, 0, 138);
+    background-color: rgb(0, 138, 240);
+    border: 1px solid rgb(0, 138, 240);
 }
 
 .add-comment-button {
@@ -141,7 +141,7 @@
     margin-left: 8px;
     text-align: center;
     width: auto;
-    background-color: rgb(200, 200, 200);
+    background-color:  #cab19b;
     color: white;
     border: 1px solid white;
     border-radius: 4px;
