@@ -45,7 +45,7 @@ function AllPosts(){
                                     alt={post?.id}
                                     src={post?.image_url}
                                     onError={(e) =>
-                                    (e.target.src = "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")} 
+                                    (e.target.src = "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png")} 
                                 />
                                 {/* <GetAllComments id={post.id} /> */}
                         

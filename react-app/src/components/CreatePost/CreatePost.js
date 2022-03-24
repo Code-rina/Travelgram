@@ -72,11 +72,6 @@ function AddPostForm({ closeModal }) {
   //   setErrors(errors)
   // }, [imageUrl, caption])
   
-  const url = imageUrl[0]?.url
-
-  const imageValidator = (image) => {
-    return /\.(png|jpeg|jpg)$/.test(image)
-  }
 
   useEffect(() => {
     const errors = []
@@ -95,8 +90,9 @@ function AddPostForm({ closeModal }) {
               ))}
           </ul>
           <div className="add-post-div-container">
+            {/* <h5 className="add-post-default-img-txt">• If URL image is not found, defaulted image will render.</h5> */}
               {/* <h4>Uploaded picture preview...</h4> */}
-        {imageValidator(url) ?
+        {/* {imageUrl ?? (
           <img
             alt='post_img'
             src={imageUrl}
@@ -105,10 +101,10 @@ function AddPostForm({ closeModal }) {
             // required
             onError={(e) =>
               (e.target.src =
-                "https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg")
+                "https://bitsofco.de/content/images/2018/12/broken-1.png")
             }
           />
-        :
+          )} */}
         <div>
           <label className="add-post-label-txt"> Image </label>
           <input
@@ -118,7 +114,7 @@ function AddPostForm({ closeModal }) {
             onChange={(e) => setImageUrl(e.target.value)}
             />
         </div>
-          }
+          
         <div className="add-post-caption-div">
           <label className="add-post-label-txt"> Caption </label>
           <textarea

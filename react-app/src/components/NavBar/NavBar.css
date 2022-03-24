@@ -46,8 +46,10 @@
     font-family: 'Cookie', cursive;
     font-size: 40px;
     /* text-decoration: solid; */
-    text-decoration-color: rgb(213,0,138);
+    text-decoration-color: #8c5638;
     text-decoration-thickness: 2px;
+    text-decoration-line: underline;
+    text-shadow: 1.5px 1.5px  1px #cab19b;
     color: rgb(34,34,34);
     /* padding-right: 700px; */
     display: flex;
@@ -73,7 +75,9 @@
     box-sizing: border-box;
     font-weight: 500;
     background-color: rgb(240, 240, 240);
-    border: 1px solid rgb(213, 0, 138);
+    border: 1px solid #8c5638;
+    box-shadow: 2px 2px 4px #cab19b;
+    margin-left: 30px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -89,7 +93,9 @@
 }
 .add-post-button {
     background-color: rgb(240, 240, 240);
-    border: 1px solid rgb(213, 0, 138);
+    border: 1px solid #8c5638;
+    box-shadow: 2px 2px 4px #cab19b;
+    margin-left: 30px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -104,14 +110,26 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+.navbar-left-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.navbar-right-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 
 .logout-button {
     background-color: rgb(240, 240, 240);
-    border: 1px solid rgb(213, 0, 138);
+    border: 1px solid #8c5638;
+    margin-left: 30px;
+    box-shadow: 2px 2px 4px #cab19b;
     padding-left: 9px;
     padding-right: 9px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
     border-radius: 4px;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
