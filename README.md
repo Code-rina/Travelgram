@@ -19,7 +19,7 @@ Javascript | Python | Node.js | NPM | Flask | SQLAlchemy | Postgres | Alembic | 
 
 ## Installation
 
-#### To install Travelgram on your local machine please clone the project repositor:
+#### To install Travelgram on your local machine please clone the project repository:
 * clone the project
 ```
 git clone https://github.com/Code-rina/Travelgram.git
