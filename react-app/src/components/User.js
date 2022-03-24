@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllPostsThunk } from '../store/post';
 import { NavLink } from 'react-router-dom';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 import './User.css'
 
 function User() {
@@ -14,6 +15,8 @@ function User() {
   const allPostsArray = Object.values(allPosts)
   const { userId }  = useParams();
   const userPosts = allPostsArray.filter((post) => post?.user_id === +oneUser.id)
+  const [none, setNone] = useState(false)
+
 
   useEffect(() => {
     (async () => {
@@ -34,6 +37,10 @@ function User() {
     })();
   }, [userId]);
 
+  if (none) {
+    return <ErrorPage/>
+  }
+
   if (!user) {
     return null;
   }
@@ -53,6 +60,7 @@ function User() {
         </div>
         </div>
         <div className="profile-lower-div">
+          {/* {userPosts && } */}
         <div className="profile-posts-div">
           {userPosts.map((post) => (
             <div className="profile-user-posts">
