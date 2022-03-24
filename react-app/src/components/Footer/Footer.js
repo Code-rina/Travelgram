@@ -20,8 +20,8 @@ const Footer = () => {
       <div className="footer-developedby">
           <p className="footer-developedby-txt">Developed by:</p>
           <p className="footer-name">Katerina Kreibich</p>
-          <a className="footer-linkedin-icon" href="https://github.com/Code-rina"><i className="fab fa-github-square"></i></a>
-          <a className="footer-github-icon" href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/"><i className="fab fa-linkedin"></i></a>
+          <a className="footer-linkedin-icon" href="https://github.com/Code-rina">Github</a>
+          <a className="footer-github-icon" href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/">LinkedIn</a>
       </div>
     </div>
   );

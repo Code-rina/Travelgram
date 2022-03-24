@@ -18,6 +18,9 @@
 .errors {
     color: red;
 }
+.add-post-button {
+    font-size: 14px;
+}
 .add-post-main-container {
     margin: auto;
     width: 400px;
