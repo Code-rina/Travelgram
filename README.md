@@ -63,7 +63,14 @@ npm start
 * open localhost:3000 and enjoy!
 
 
-# Features
+# Features implemented
+* #### Posts
+* #### Comments
+
+# Features to be implemented in the future
+* #### Likes
+* #### Followers
+* #### Search
 
 ## Login Page
 ![Screen Shot 2022-03-24 at 2 45 27 AM](https://user-images.githubusercontent.com/87352324/159888755-e4208c99-5fc0-4928-b535-0c4226050b77.png)
