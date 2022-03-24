@@ -57,7 +57,7 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/*'>
+        <Route path='*'>
           <ErrorPage />  
         </Route>
       </Switch>

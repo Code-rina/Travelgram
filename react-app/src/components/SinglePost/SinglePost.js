@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getOnePostThunk } from '../../store/post';
@@ -9,8 +10,10 @@ import GetAllComments from '../GetAllComments/GetAllComments';
 import AddCommentModal from '../CreateComment/index';
 import EditCommentModal from '../EditComment/index';
 // import { deleteOneCommentThunk } from '../../store/comment';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 import './SinglePost.css';
+
 
 
 function SinglePost({post_id}){
@@ -33,9 +36,23 @@ function SinglePost({post_id}){
     // const allPostsArray = Object.values(allPosts)
     // console.log("allPosts.id::::", allPosts)
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
+    // const [none, setNone] = useState(false)
+    // const [load, setLoad] = useState(false)
+    
     // console.log("usersComment::::::", usersComment)
 
     // const comment = useSelector((state) => state.comment?.coments)
+
+    // useEffect(() => {
+    //     dispatch(getOnePostThunk(post)).then(
+    //         response => {
+    //                 setLoad(false)
+    //                 if(response.status === 404) {
+    //                     setNone(true)
+    //                 }
+    //         }
+    //     )
+    // },[dispatch, post] )
 
     useEffect(() => {
         dispatch(getOnePostThunk(id))
@@ -44,6 +61,11 @@ function SinglePost({post_id}){
     if (!post) {
         return null
     }
+
+    // if (none) {
+    //     return <ErrorPage/>
+    // }
+
 
     if (!user) {
         history.push(`/login`)
