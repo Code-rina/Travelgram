@@ -90,7 +90,7 @@
 }
 
 .add-post-create-div {
-    /* justify-content: center; */
+    /* justify-content: center; */ 
     display: flex;
     flex-direction: row;
 }
