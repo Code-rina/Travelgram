@@ -72,29 +72,30 @@ npm start
 * #### Followers
 * #### Search
 
-## Login Page
+
+# Login Page
 ![Screen Shot 2022-03-24 at 2 45 27 AM](https://user-images.githubusercontent.com/87352324/159888755-e4208c99-5fc0-4928-b535-0c4226050b77.png)
 
-## Signup Modal
+# Signup Modal
 ![Screen Shot 2022-03-24 at 2 45 47 AM](https://user-images.githubusercontent.com/87352324/159888824-49009713-31c9-4e08-8e22-6b7b847ff1f2.png)
 
-## All Posts Page(Home)
+# All Posts Page(Home)
 ![Screen Shot 2022-03-24 at 2 46 33 AM](https://user-images.githubusercontent.com/87352324/159888979-836498fc-d51c-4c2c-8605-5663f9e2e72a.png)
 
-## Create a New Post Modal
+# Create a New Post Modal
 ![Screen Shot 2022-03-24 at 2 46 58 AM](https://user-images.githubusercontent.com/87352324/159889047-4b72b844-56b6-4203-b434-b70aa6006997.png)
 
-## Single Post Page
+# Single Post Page
 ![Screen Shot 2022-03-24 at 2 47 48 AM](https://user-images.githubusercontent.com/87352324/159889189-418d7154-f212-4a99-8e2d-6610d3448695.png)
 
-## Edit Post Modal
+# Edit Post Modal
 ![Screen Shot 2022-03-24 at 2 48 24 AM](https://user-images.githubusercontent.com/87352324/159889321-f6b6fb78-d754-4e51-be1a-3fbe8b906242.png)
 
-## Edit Comment Modal
+# Edit Comment Modal
 ![Screen Shot 2022-03-24 at 2 48 51 AM](https://user-images.githubusercontent.com/87352324/159889388-19293fa6-c6e0-41e6-840d-f2ed4de88424.png)
 
-## User Profile Page
+# User Profile Page
 ![Screen Shot 2022-03-24 at 2 49 34 AM](https://user-images.githubusercontent.com/87352324/159889534-48bbc154-24a8-4494-b0fe-bd7a10a0ab99.png)
 
-## 404 page 
+# 404 page 
 ![Screen Shot 2022-03-24 at 2 57 55 AM](https://user-images.githubusercontent.com/87352324/159891034-c35c2305-681e-4435-a948-dd6169b84a19.png)
