@@ -2,19 +2,28 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, ValidationError, Length, URL
 from app.models import Post
+import re
 
+def image_valid_http(form, field):
+    image_url = field.data
+    valid = re.search(r'(http).*/', image_url.lower())
+    if not valid:
+        raise ValidationError("Valid image URL must start with http or https.")
 
-# def image_valid(form, field):
-#     image_url = field.data
-#     if "http" not in "image_url" or "https" not in "image_url" or"jpg" not in "image_url" or"jpeg" not in "image_url" or"png" not in "image_url":
-#         raise ValidationError("Please provide a valid url.")
-# Figure out why is the function above not working
+def image_valid_jpg(form, field):
+    image_url = field.data
+    valid = re.search(r'\.(png|jpeg|jpg|gif)$', image_url.lower())
+    if not valid:
+        raise ValidationError("Valid image URL must eng in .png, .jpeg, .jpg or .gif.")
 
 class AddPostForm(FlaskForm):
     caption = TextAreaField('caption', validators=[DataRequired(message='Please provide a caption.'),
     Length(min=1,max=500, message='Caption has to have a maximum of 500 characters.')])
     
     image_url = StringField('image_url', validators=[
-                           DataRequired(message='Please provide an image url.'), URL(require_tld=True, message="The url provided is not valid. Please provide a valid url.")])
-#   , image_valid
+                           DataRequired(message='Please provide an image url.'), 
+                           Length(min=1, max=255, message='Please provide image URL that is less than 255 characters.'),
+                           URL(require_tld=True, message="The image URL provided is not valid. Please provide a valid URL."),
+                           image_valid_jpg, image_valid_http])
+
     submit = SubmitField('submit')

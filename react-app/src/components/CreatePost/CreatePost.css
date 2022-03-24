@@ -29,9 +29,13 @@
     display: flex;
     flex-direction: column;
     /* margin-left: 30%; */
-    padding-top: 10px;
+    /* padding-top: 10px; */
     /* justify-content: center; */
     align-items: center;
+}
+.add-post-default-img-txt {
+    font-size: 12px;
+    font-weight: 300;
 }
 .add-post-create-new-post-text {
     font-size: 18px;
@@ -46,7 +50,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #add-post-label-image {
@@ -86,7 +90,7 @@
 }
 
 .add-post-create-div {
-    /* justify-content: center; */
+    /* justify-content: center; */ 
     display: flex;
     flex-direction: row;
 }
@@ -104,7 +108,7 @@
     margin: auto;
     text-align: center;
     width: auto;
-    background-color: rgb(180,180,180);
+    background-color: #cab19b;;
     color: white;
     border: 1px solid white;
     border-radius: 4px;

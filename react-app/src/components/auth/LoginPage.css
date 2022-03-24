@@ -27,6 +27,19 @@ font-family: 'Cookie', cursive;
     width: 100%; 
 } */
 
+
+.login-motto {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(34,34,34);
+    margin-left: 3.5%;
+    inline-size: 400px; 
+    overflow-wrap: break-word;
+    text-shadow: 1.5px 1.5px  1px #cab19b;
+}
+
 .home-logo-div {
     background-color: rgb(250, 250, 250)
 }
@@ -52,7 +65,11 @@ font-family: 'Cookie', cursive;
     margin-top: 10%;
     margin-bottom: 5%;
     margin-left: 20%;
-    color: rgb(34,34,34)
+    color: rgb(34,34,34);
+    text-decoration-color: #8c5638;
+    text-decoration-thickness: 2px;
+    text-decoration-line: underline;
+    text-shadow: 1.5px 1.5px 1px #cab19b;
 }
 
 .home-email-password-div {

@@ -40,6 +40,7 @@ const LoginForm = () => {
       </div>
       <div className="home-login-container">
         <div className="logo-login-form">Travelgram</div>
+        <h3 className="login-motto">Capture and share travel adventures...</h3>
         <form onSubmit={onLogin}>
           <div className="errors">
             {errors.map((error, ind) => (
