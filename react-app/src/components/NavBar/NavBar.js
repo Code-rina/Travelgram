@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import AddPostModal from '../CreatePost/index'
+import { BiUser } from 'react-icons/bi'
 import User from '../User'
 import './NavBar.css'
 // import DemoUser from './auth/DemoUser'
@@ -30,7 +31,7 @@ const NavBar = () => {
           </div>
           <div className="nav-li">
             <NavLink className="nav-user" to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
-              <h3 className="create-post">User</h3>
+              <button className="user-btn"><BiUser /></button>
             </NavLink>
           </div>
           <div className="nav-li">

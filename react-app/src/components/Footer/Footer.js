@@ -1,4 +1,6 @@
 import React from 'react';
+import { BsLinkedin } from 'react-icons/bs'
+import { FaGithubSquare } from 'react-icons/fa'
 import './Footer.css'
 
 
@@ -20,8 +22,8 @@ const Footer = () => {
       <div className="footer-developedby">
           <p className="footer-developedby-txt">Developed by:</p>
           <p className="footer-name">Katerina Kreibich</p>
-          <a className="footer-linkedin-icon" href="https://github.com/Code-rina">Github</a>
-          <a className="footer-github-icon" href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/">LinkedIn</a>
+          <a className="footer-github-icon" href="https://github.com/Code-rina" target="_blank" rel="noopener noreferrer"><FaGithubSquare /></a>
+          <a className="footer-linkedin-icon" href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/" target="_blank" rel="noopener noreferrer"><BsLinkedin /></a>
       </div>
     </div>
   );
