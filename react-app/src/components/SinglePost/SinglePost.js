@@ -36,35 +36,30 @@ function SinglePost({post_id}){
     // const allPostsArray = Object.values(allPosts)
     // console.log("allPosts.id::::", allPosts)
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
-    // const [none, setNone] = useState(false)
-    // const [load, setLoad] = useState(false)
+    const [none, setNone] = useState(false)
+    const [load, setLoad] = useState(false)
     
     // console.log("usersComment::::::", usersComment)
 
     // const comment = useSelector((state) => state.comment?.coments)
 
-    // useEffect(() => {
-    //     dispatch(getOnePostThunk(post)).then(
-    //         response => {
-    //                 setLoad(false)
-    //                 if(response.status === 404) {
-    //                     setNone(true)
-    //                 }
-    //         }
-    //     )
-    // },[dispatch, post] )
+
 
     useEffect(() => {
-        dispatch(getOnePostThunk(id))
+        dispatch(getOnePostThunk(id)).then(data => {
+            if(data === undefined) {
+                history.push('/404-page-not-found')
+            }
+        })
     }, [dispatch, id]);
 
     if (!post) {
         return null
     }
 
-    // if (none) {
-    //     return <ErrorPage/>
-    // }
+    if (none) {
+        return <ErrorPage/>
+    }
 
 
     if (!user) {
