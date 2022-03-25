@@ -71,24 +71,35 @@
     border-bottom: none;
     
 }
+.user-btn {
+    border: none;
+    font-size: 25px;
+    font-weight: 2000;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 0px;
+    border-radius: 4px;
+}
 
 .nav-user {
-    border-bottom: none;
+    border: none;
     text-decoration: none;
     cursor: pointer;
     box-sizing: border-box;
-    font-weight: 500;
+    /* font-size: 25px;
+    font-weight: 2000; */
     background-color: rgb(240, 240, 240);
     border: 1px solid #8c5638;
     box-shadow: 2px 2px 4px #cab19b;
     margin-left: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* padding-top: 1px; */
-    /* padding-bottom: 1px; */
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    /* padding-top: 4px;
+    padding-bottom: 4px; */
     border-radius: 4px;
     /* font-size: 20px; */
-    font-weight: 1000;
+    /* font-weight: 1000; */
     /* margin-left: 20px; */
     cursor: pointer;
     display: flex;
@@ -100,19 +111,39 @@
     border: 1px solid #8c5638;
     box-shadow: 2px 2px 4px #cab19b;
     margin-left: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-radius: 4px;
-    font-size: 20px;
-    font-weight: 1000;
+    font-size: 25px;
+    font-weight: 2000;
     
     /* margin-left: 20px; */
     cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+.logout-button {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #8c5638;
+    margin-left: 30px;
+    box-shadow: 2px 2px 4px #cab19b;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    font-size: 25px;
+    font-weight: 2000;
+    /* margin-left: 20px; */
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* margin-right: 50px; */
+
 }
 .navbar-left-div {
     display: flex;
@@ -125,25 +156,4 @@
     justify-content: flex-end;
 }
 
-.logout-button {
-    background-color: rgb(240, 240, 240);
-    border: 1px solid #8c5638;
-    margin-left: 30px;
-    box-shadow: 2px 2px 4px #cab19b;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    /* margin-left: 20px; */
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    /* margin-right: 50px; */
-
-}
 

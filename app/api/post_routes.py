@@ -33,6 +33,9 @@ def get_all_posts():
 @login_required
 def get_one_post(id):
   post = Post.query.get(id)
+
+  # if post is None:
+  #   abort(404)
   
   return post.to_dict()
 

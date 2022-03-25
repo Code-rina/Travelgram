@@ -63,6 +63,7 @@ export const getOnePostThunk = (id) => async (dispatch) => {
         dispatch(loadOnePostAction(data))
         return data
     }
+    // return response
 }
 
 export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch) => {
