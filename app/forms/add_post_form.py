@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField   
 from wtforms.validators import DataRequired, ValidationError, Length, URL
 from app.models import Post
 import re
@@ -17,6 +17,7 @@ def image_valid_jpg(form, field):
         raise ValidationError("Valid image URL must end with .png, .jpeg, .jpg or .gif.")
 
 class AddPostForm(FlaskForm):
+    user_id = IntegerField('user_id')
     caption = TextAreaField('caption', validators=[DataRequired(message='Please provide a caption.'),
     Length(min=1,max=500, message='Caption has to have at least 1 and less than 500 characters.')])
     

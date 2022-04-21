@@ -46,12 +46,14 @@ def get_one_post(id):
 @post_routes.route('/addpost', methods=["POST"])
 @login_required
 def create_post():
+    print("request.files::::::",request.files["image"])
     if "image" not in request.files:
+        print("1st ?????")
         return {"errors": "image required"}, 400
 
     image = request.files["image"]
-
     if not allowed_file(image.filename):
+        print("2nd ?????")
         return {"errors": "file type not permitted"}, 400
     
     image.filename = get_unique_filename(image.filename)
@@ -71,8 +73,8 @@ def create_post():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-
-      post = Post(user_id=data['user_id'], caption=form.data['caption'], image_url=url)
+      print("first!!!!!!!!!!!!")
+      post = Post(user_id=form.data['user_id'], caption=form.data['caption'], image_url=url)
 
       db.session.add(post)
 
@@ -80,6 +82,7 @@ def create_post():
 
       return post.to_dict()   
     else:
+      print("second!!!!!!!!!!!!")
       return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Edit a post
