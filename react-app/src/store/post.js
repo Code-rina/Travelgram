@@ -69,7 +69,6 @@ export const getOnePostThunk = (id) => async (dispatch) => {
 export const addOnePostThunk = ({ userId, imageUrl, caption}) => async (dispatch) => {
     const response = await fetch(`/api/posts/addpost`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             "user_id": userId,
             "image_url": imageUrl,

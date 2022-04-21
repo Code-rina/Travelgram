@@ -24,15 +24,18 @@ function AddPostForm({ closeModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let data;
-    const payload = {
-      userId: sessionUser.id,
-      imageUrl,
-      caption,
-    };
+    // const payload = {
+    //   userId: sessionUser.id,
+    //   imageUrl,
+    //   caption,
+    // };
+    const formData = new FormData()
+    formData.append("image", imageUrl)
+    formData.append("caption", caption)
     // console.log("errors::::", errors)
     // if (errors.length === 0) {
     // console.log("payload:::::", payload)
-    data = await dispatch(addOnePostThunk(payload));
+    data = await dispatch(addOnePostThunk(formData));
     // console.log("result::::", data)
     
     if (data) {
@@ -43,6 +46,10 @@ function AddPostForm({ closeModal }) {
         history.push('/')
       }
     }
+  }
+
+  const eventListenerFunc = event => {
+    setImageUrl(event.target.files[0])
   }
 
 
@@ -110,8 +117,9 @@ function AddPostForm({ closeModal }) {
           <input
             id="add-post-label-image"
             placeholder="Your Image url here..."
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            type="file"
+            accept="image/*"
+            onChange={eventListenerFunc}
             />
         </div>
           

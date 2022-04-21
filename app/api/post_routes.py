@@ -1,6 +1,8 @@
 from flask import Blueprint, abort, request
 from flask_login import login_required
 from app.models import Post, User, db
+from app.s3_config import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms.add_post_form import AddPostForm
 from app.forms.edit_post_form import EditPostForm
 
@@ -44,21 +46,41 @@ def get_one_post(id):
 @post_routes.route('/addpost', methods=["POST"])
 @login_required
 def create_post():
-  data = request.json
-  form = AddPostForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
+    if "image" not in request.files:
+        return {"errors": "image required"}, 400
 
-  if form.validate_on_submit():
+    image = request.files["image"]
 
-    post = Post(user_id=data['user_id'], caption=form.data['caption'], image_url=form.data['image_url'])
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+    
+    image.filename = get_unique_filename(image.filename)
 
-    db.session.add(post)
+    upload = upload_file_to_s3(image)
 
-    db.session.commit()
+    if "url" not in upload:
+        print("upload!!!!!!!", upload)
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
 
-    return post.to_dict()   
-  else:
-    return{'errors': validation_errors_to_error_messages(form.errors)}, 400
+    url = upload["url"]
+    data = request.json
+    form = AddPostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+      post = Post(user_id=data['user_id'], caption=form.data['caption'], image_url=url)
+
+      db.session.add(post)
+
+      db.session.commit()
+
+      return post.to_dict()   
+    else:
+      return{'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # Edit a post
 @post_routes.route('/editpost/<int:id>', methods=["PUT"])
