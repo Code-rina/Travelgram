@@ -32,10 +32,16 @@ function AddPostForm({ closeModal }) {
     const formData = new FormData()
     formData.append("image", imageUrl)
     formData.append("caption", caption)
+    formData.append("user_id", sessionUser.id)
+    console.log("formData:::::::::", formData.values())
+    for (var value of formData.values()) {
+      console.log(value); 
+    }
     // console.log("errors::::", errors)
     // if (errors.length === 0) {
     // console.log("payload:::::", payload)
     data = await dispatch(addOnePostThunk(formData));
+    console.log("data:::::::::", data)
     // console.log("result::::", data)
     
     if (data) {
