@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { getAllPostsThunk } from '../../store/post'
-// import GetAllComments from '../GetAllComments/GetAllComments'
+
 
 
 
@@ -13,22 +13,14 @@ function AllPosts(){
     const dispatch = useDispatch()
     const history = useHistory()
     const allPosts = useSelector((state) => state?.post?.posts)
-    // console.log("allPosts::::::", allPosts)
+
  
     const user = useSelector((state) => state.session.user.username);
     const [sessionId, setSessionId] = useState()
 
     
-    // const { id } = useParams()
-
    const allPostsArray = Object.values(allPosts)
-//    console.log("allPostsArray::::::", allPostsArray)
 
-//    console.log("allPosts.id::::", allPosts)
-
-//     if(allPosts.id === undefined) {
-//     history.push('/page-not-found')
-//     }
 
     useEffect(() => {
         dispatch(getAllPostsThunk())
@@ -39,7 +31,6 @@ function AllPosts(){
     }
     
     
- // https://i.gyazo.com/953eaecab771a2f8f4e514e5750531cb.jpg
     return (
         <div className="posts-main-container">
             <div className="posts-sub-container">
@@ -53,8 +44,6 @@ function AllPosts(){
                                     onError={(e) =>
                                     (e.target.src = "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png")} 
                                 />
-                                {/* <GetAllComments id={post.id} /> */}
-                        
                         <div className='post-caption'>{post?.caption}</div>
                     </Link>
                 </div>

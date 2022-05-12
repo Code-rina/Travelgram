@@ -5,11 +5,8 @@
 .Modal{
     overflow: hidden;
     border-radius: 12px;
-    /* overflow-y: hidden; */
 }
-/* .add-post-modal {
-    height: 100%;
-} */
+
 .add-post-main-container {
     margin: auto;
     width: 500px;
@@ -29,9 +26,6 @@
 .add-post-div-container {
     display: flex;
     flex-direction: column;
-    /* margin-left: 30%; */
-    /* padding-top: 10px; */
-    /* justify-content: center; */
     align-items: center;
 }
 .add-post-default-img-txt {
@@ -91,7 +85,6 @@
 }
 
 .add-post-create-div {
-    /* justify-content: center; */ 
     display: flex;
     flex-direction: row;
 }
@@ -113,5 +106,4 @@
     color: white;
     border: 1px solid white;
     border-radius: 4px;
-    /* margin-bottom: 2px; */
 }

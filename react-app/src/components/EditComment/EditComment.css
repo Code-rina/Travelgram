@@ -32,9 +32,6 @@
 .edit-comment-div-container {
     display: flex;
     flex-direction: column;
-    /* margin-left: 30%; */
-    /* padding-top: 10px; */
-    /* justify-content: center; */
     align-items: center;
 }
 .edit-comment-edit-comment-text {
@@ -49,7 +46,6 @@
 .edit-comment-form {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 .edit-comment-label-div {
     align-items: center;
@@ -57,15 +53,9 @@
     flex-direction: column;
 }
 
-/* .edit-comment-label-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
 .edit-comment-create-div {
     align-items: center;
     display: flex;
-    /* flex-direction: column; */
 }
 
 .edit-comment-comment {

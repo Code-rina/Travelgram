@@ -3,7 +3,6 @@
 }
 
 .footer-main-container {
-    /* why doesn't footer stick? */
     font-size: 12px;
     display: flex;
     flex-direction: column;
@@ -61,11 +60,8 @@
 }
 
 .footer-linkedin-icon {
-    /* figure out why the icon color not changing to grey */
     color: rgb(131,131,131);
     font-size: 27px;
-    /* transform: translate(-35%);
-    background-color: transparent; */
     padding-left: 20px;
     padding-right: 10px;
 

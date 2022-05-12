@@ -5,8 +5,6 @@ const EDIT_POST = 'posts/EDIT_POST';
 const DELETE_POST = 'posts/DELETE_POST';
 
 
-//----------------------------------
-
 export const loadAllPostsAction = (posts) => {
     return {
         type: LOAD_POSTS,
@@ -43,11 +41,9 @@ export const deleteOnePostAction = (post) => {
 }
 
 
-//----------------------------------
 
 export const getAllPostsThunk = () => async (dispatch) => {
     const response = await fetch(`/api/posts/`);
-    // console.log("response:::::::",response)
     if (response.ok) {
         const data = await response.json();
         dispatch(loadAllPostsAction(data.posts));
@@ -63,7 +59,6 @@ export const getOnePostThunk = (id) => async (dispatch) => {
         dispatch(loadOnePostAction(data))
         return data
     }
-    // return response
 }
 
 export const addOnePostThunk = (payload) => async (dispatch) => {
@@ -71,7 +66,6 @@ export const addOnePostThunk = (payload) => async (dispatch) => {
         method: 'POST',
         body: payload,
     })
-    // console.log("response:::", response)
     if (response.ok) {
         const data = await response.json();
         dispatch(addOnePostAction(data))
@@ -80,7 +74,6 @@ export const addOnePostThunk = (payload) => async (dispatch) => {
     else if (response.status < 500) {
         const data = await response.json();
         if(data.errors) {
-            // console.log("data::::",data)
             return data
         }
     }
@@ -88,7 +81,6 @@ export const addOnePostThunk = (payload) => async (dispatch) => {
 
 
 export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
-    // console.log("caption:::::::",caption)
     
     const response = await fetch(`/api/posts/editpost/${id}`, {
         method: 'PUT',
@@ -97,7 +89,6 @@ export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
             caption
         }),
     })
-    // console.log("response:::::", response)
     if (response.ok) {
         const data = await response.json();
         dispatch(editOnePostAction(data))
@@ -106,7 +97,6 @@ export const editOnePostThunk = ({ caption, id}) => async (dispatch) => {
     else if (response.status < 500) {
         const data = await response.json();
         if(data.errors) {
-            // console.log("data::::",data)
             return data
         }
     }
@@ -121,7 +111,6 @@ export const deleteOnePostThunk = (id) => async (dispatch) => {
     }
 }
 
-//----------------------------------
 
 const initialState = { posts: {} }
 const postReducer = (state = initialState, action) => {
@@ -139,22 +128,17 @@ const postReducer = (state = initialState, action) => {
         }
         case ADD_POST: {
             newState = {...state};
-            // newState[action.post.id] = action.post
             newState.posts = {...state.posts, [action.post.id]: action.post}
-            // console.log("newState::::::", newState)
             return newState;
         }
         case EDIT_POST: {
             newState = {...state};
             newState[action.post.id] = action.post
-            // console.log("this is newState:::::", newState)
-            // console.log("newState::::::", newState)
             return newState;
         }  
         case DELETE_POST: {
             newState = {...state};
             delete newState.posts[action.post]
-            // console.log("newState:::::", newState.posts[action.post])
             return newState;
         }
 
