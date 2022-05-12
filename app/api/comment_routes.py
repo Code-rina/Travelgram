@@ -59,7 +59,6 @@ def edit_comment(id):
   
     edit_comment.comment = form.data['comment']
 
-    print("edit_comment:::::", edit_comment)
     db.session.commit()
 
     return edit_comment.to_dict()

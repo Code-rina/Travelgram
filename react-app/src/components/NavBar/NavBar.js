@@ -8,12 +8,10 @@ import AddPostModal from '../CreatePost/index'
 import { BiUser } from 'react-icons/bi'
 import User from '../User'
 import './NavBar.css'
-// import DemoUser from './auth/DemoUser'
+
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
-  // console.log("sessionUser::::::::", sessionUser) 
-  //null before login, obj with user data after login
 
   return (
     <nav className="navbar-main-container">

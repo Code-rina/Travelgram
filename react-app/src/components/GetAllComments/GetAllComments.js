@@ -13,25 +13,16 @@ function GetAllComments({id, comment}) {
     const history = useHistory()
    
     const allComments = useSelector((state) => state?.comment?.comments)
-    // console.log("allComments:::::", allComments)
-    // console.log("allComments:::::::", allComments)
     const sessionUser = useSelector((state) => state.session?.user);
-    // const [sessionId, setSessionId] = useState()
-    // const postId = useSelector((state) => state.post[id])
-    //  console.log("allCommentsArray:::::::", allCommentsArray)
-    // const { id } = useParams()
+
     const [filteredCommentsArray, setFilteredCommentsArray] = useState([])
     const post = useSelector((state) => state.post)
     const userComment = useSelector((state) => state.comment?.comments?.user_id)
-    // console.log("comment::::::::", comment)
-    
-    // let filteredCommentsArray;
+
+
     
     useEffect(() => {
         
-        // (async () => {
-        //    let data = await dispatch(getAllCommentsThunk())
-        // })()
         const allCommentsArray = Object.values(allComments)
         setFilteredCommentsArray(allCommentsArray.filter((oneComment) => {
             return oneComment.post_id === id
@@ -48,12 +39,6 @@ function GetAllComments({id, comment}) {
         
     }
    
-// figure out how to show only comments that are for the specific post
-// comment.post_id === post.id 
-
-
-console.log("filteredArray:::::::", filteredCommentsArray)
-// console.log("filtered::::::::", allComments)
 
     return (   
      <div className="comments-main-container">

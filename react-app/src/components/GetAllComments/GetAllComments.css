@@ -3,7 +3,6 @@
 }
 
 .add-comment-username-txt {
-    /* margin-top: 20px; */
     padding-top: 10px;
     font-weight: 500;
     padding-left: 8px;
@@ -13,13 +12,11 @@
     border-bottom: 1px solid rgb(240,240,240);
 }
 
-/* .single-post-caption {
-    border-bottom: 1px solid rgb(214,214,214);
-} */
+
 .comments-main-container {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
+
 }
 
 .comments-box {
@@ -40,9 +37,6 @@
     line-height: 18px;
     box-sizing: border-box;
     cursor: pointer;
-    /* display: block;
-    display: flex;
-    flex-direction: row; */
     font-size: 12px;
     font-weight: 400;
     padding-top: 2px;
@@ -50,7 +44,6 @@
     padding-left: 4px;
     padding-right: 4px;
     margin-top: 15px;
-    /* text-align: center; */
     width: auto;
     background-color: #cab19b;
     color: white;
@@ -62,9 +55,6 @@
     line-height: 18px;
     box-sizing: border-box;
     cursor: pointer;
-    /* display: block;
-    display: flex;
-    flex-direction: row; */
     font-size: 12px;
     font-weight: 400;
     padding-top: 2px;
@@ -72,7 +62,6 @@
     padding-left: 4px;
     padding-right: 4px;
     margin-top: 15px;
-    /* text-align: center; */
     width: auto;
     background-color: #cab19b;
     color: white;

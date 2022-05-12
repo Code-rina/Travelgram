@@ -21,28 +21,17 @@ function SinglePost({post_id}){
     const history = useHistory()
     const user = useSelector((state) => state.session.user);
     const { id } = useParams()
-    // postId above
-    // console.log("id::::::", id)
+ 
     const post = useSelector((state) => state?.post[id])
-    // console.log("post::::::", post)
-    // TO DO: clean up code - multiple variables do tha same thing!!!
+
     const sessionUser = useSelector((state) => state.session?.user)
-    // console.log("sessionUser:::::::", sessionUser)
+
     const onePost = useSelector((state) => state.post[id])
-    // const usersComment = useSelector((state) => state.comment?.comments) 
-    // console.log("usersComment:::::", usersComment)
-    // console.log("post_id::::::", post_id)
-    // const allPosts = useSelector((state) => state?.post?.posts)
-    // const allPostsArray = Object.values(allPosts)
-    // console.log("allPosts.id::::", allPosts)
+
     const usersComment = useSelector((state) => state.comment?.coments?.user_id)
     const [none, setNone] = useState(false)
     const [load, setLoad] = useState(false)
     
-    // console.log("usersComment::::::", usersComment)
-
-    // const comment = useSelector((state) => state.comment?.coments)
-
 
 
     useEffect(() => {
@@ -65,7 +54,6 @@ function SinglePost({post_id}){
     if (!user) {
         history.push(`/login`)
     }
-    // console.log("posts:::::", post)
     const handleDeletePost = async(e) => {
         e.preventDefault();
         await dispatch(deleteOnePostThunk(post?.id))
@@ -73,10 +61,6 @@ function SinglePost({post_id}){
         
     }
 
-    // if(allPosts.id === undefined) {
-    //     history.push('/page-not-found')
-    //     }
-    
     
 
     return (

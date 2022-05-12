@@ -5,7 +5,6 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getAllPostsThunk } from '../store/post';
 import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa'
-// import ErrorPage from '../components/ErrorPage/ErrorPage';
 import './User.css'
 
 function User() {
@@ -22,8 +21,7 @@ function User() {
   if (oneUser && oneUser.id !== +id) {
     history.push('/404-page-not-found')
   }
-  // console.log("OneUser.id:::::", oneUser.id)
-  // console.log("userId::::", id)
+
   useEffect(() => {
     (async () => {
       await dispatch(getAllPostsThunk())
@@ -31,21 +29,6 @@ function User() {
   }, [dispatch])
 
 
-
-  // useEffect(() => {
-  //   if (!userId) {
-  //     return;
-  //   }
-  //   (async () => {
-  //     const response = await fetch(`/api/users/${userId}`);
-  //     const user = await response.json();
-  //     setUser(user);
-  //   })();
-  // }, [userId]);
-
-  // if (none) {
-  //   return <ErrorPage/>
-  // }
 
   if (!user) {
     return null;
@@ -66,7 +49,6 @@ function User() {
         </div>
         </div>
         <div className="profile-lower-div">
-          {/* {userPosts && } */}
         <div className="profile-posts-div">
           {userPosts.map((post) => (
             <div className="profile-user-posts">

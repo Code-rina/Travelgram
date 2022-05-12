@@ -33,23 +33,10 @@
     align-items: center;
 }
 
-/* .add-comment-div-container {
-    display: flex;
-    flex-direction: column; */
-    /* margin-left: 30%; */
-    /* padding-top: 10px; */
-    /* justify-content: center; */
-    /* align-items: center;
-} */
 .add-comment-create-new-comment-text {
     font-size: 18px;
     font-weight: 500;
 }
-/* .add-post-label-caption {
-    width: 50px;
-    height: 30px;
-    padding-top: 20px;
-} */
 
 .add-comment-button-div {
     border-top: 1px solid rgb(214,214,214);

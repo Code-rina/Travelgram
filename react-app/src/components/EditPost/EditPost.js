@@ -10,14 +10,12 @@ import './EditPost.css'
 function EditPostForm({ closeModal }) {
     const dispatch = useDispatch();
  
-    // const sessionUser = useSelector((state) => state?.session?.user);
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const {id} = useParams();
     const post = useSelector((state) => state?.post[id])
     const [caption, setCaption] = useState(post?.caption);
   
-    // console.log("caption::::", caption)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,22 +24,16 @@ function EditPostForm({ closeModal }) {
         id: id,
         caption,
     };
-    // console.log("payload::::::", payload)
 
-    // const editedPost = await dispatch(editOnePostThunk(payload));
-    // if (editedPost) {
-    //   history.push(`/`);
-    //   closeModal(false);
-    // }
     data = await dispatch(editOnePostThunk(payload));
-    // console.log("result::::", data)
+
     
     if (data) {
       if (data.errors) {
         setErrors(data.errors)
       } else {
         closeModal(false)
-        // history.push(`/posts/${id}`)
+
       }
     }
   }
@@ -68,13 +60,11 @@ function EditPostForm({ closeModal }) {
             ))}
           </ul>
           <div className="edit-post-div-container">
-              {/* <h4>Uploaded picture preview...</h4> */}
           <div className="edit-post-caption-div">
           <label> Caption </label>
           <textarea
             id="edit-post-label-caption"
             placeholder="Your caption here..."
-            // autoComplete="off"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
           />
@@ -84,7 +74,6 @@ function EditPostForm({ closeModal }) {
         <button
             type="submit"
             className="add-post-create-button"
-        //   disabled={errors.length > 0}
         >
           Post
         </button>
