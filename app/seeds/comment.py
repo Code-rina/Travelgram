@@ -4,14 +4,14 @@ from app.models import db, Comment
 
 def seed_comments():   
 
-  comment1 = Comment(user_id=1, post_id=1, comment='Wow! 🤩')
-  comment2 = Comment(user_id=2, post_id=2, comment='I always wanted to visit!')
-  comment3 = Comment(user_id=3, post_id=3, comment='Looks amazing 🔥')
-  comment4 = Comment(user_id=4, post_id=4, comment='Love it! 💕')
-  comment5 = Comment(user_id=5, post_id=5, comment='🙌')
-  comment6 = Comment(user_id=6, post_id=6, comment='Adding onto my bucket list for sure.')
-  comment7 = Comment(user_id=7, post_id=7, comment='Would love to go there!')
-  comment8 = Comment(user_id=8, post_id=8, comment='What a dreamy place! 🤩')
+  comment1 = Comment(user_id=1, post_id=3, comment='Wow! 🤩')
+  comment2 = Comment(user_id=2, post_id=5, comment='I always wanted to visit!')
+  comment3 = Comment(user_id=3, post_id=2, comment='Looks amazing 🔥')
+  comment4 = Comment(user_id=4, post_id=1, comment='Love it! 💕')
+  comment5 = Comment(user_id=5, post_id=6, comment='🙌')
+  comment6 = Comment(user_id=6, post_id=5, comment='Adding onto my bucket list for sure.')
+  comment7 = Comment(user_id=7, post_id=8, comment='Would love to go there!')
+  comment8 = Comment(user_id=8, post_id=9, comment='What a dreamy place! 🤩')
   comment9 = Comment(user_id=1, post_id=9, comment='I am ready for new adventures too!🛫 ')
   comment10 = Comment(user_id=2, post_id=10, comment='Love your posts about traveling. Keep posting!')
   comment11 = Comment(user_id=3, post_id=10, comment='Love traveling! ')
