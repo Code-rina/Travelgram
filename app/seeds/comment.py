@@ -94,5 +94,5 @@ def seed_comments():
 
 def undo_comments():
   # this restarts everything that has been added
-  db.session.execute('TRUNCATE moods RESTART IDENTITY CASCADE;')
+  db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
   db.session.commit()
