@@ -89,7 +89,7 @@ def seed_comments():
   db.session.add(comment40)
 
 
-  db.session.commit()
+  db.session.commit() 
 
 
 def undo_comments():
