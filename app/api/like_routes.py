@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 # Getting all likes
 @like_routes.route('/')
 def get_all_likes():
-  likes = Like.query.all()
+  likes = Like.query.all() 
 
   return {"likes": [like.to_dict() for like in likes]}
 
