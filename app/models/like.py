@@ -19,7 +19,7 @@ class Like(db.Model):
       'id': self.id,
       'user_id': self.user_id,
       'post_id': self.post_id,
-      'username': self.user.username if self.user else None,
+      # 'username': self.user.username if self.user else None,
       'created_at': self.created_at,
       'updated_at': self.updated_at
     }
